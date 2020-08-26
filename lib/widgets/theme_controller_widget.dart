@@ -5,6 +5,7 @@
 */
 import 'package:flutter/material.dart';
 import 'package:portfolio/widgets/theme_controller.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ThemeControllerWidget extends StatefulWidget {
   final bool initiallyIsDark;
@@ -23,10 +24,11 @@ class ThemeControllerWidgetState extends State<ThemeControllerWidget> {
   
   bool _isDark = true;
   
-  void toggleDark() {
+  void toggleDark() async {
     setState(() {
       _isDark = !_isDark;
     });
+    (await SharedPreferences.getInstance()).setBool("initialDark", _isDark);
   }
   
   ///InitState method

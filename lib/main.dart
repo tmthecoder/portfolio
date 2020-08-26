@@ -5,9 +5,16 @@ import 'package:portfolio/widgets/route_controller.dart';
 import 'package:portfolio/widgets/route_controller_widget.dart';
 import 'package:portfolio/widgets/theme_controller.dart';
 import 'package:portfolio/widgets/theme_controller_widget.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
-  runApp(ThemeControllerWidget(initiallyIsDark: true, child: MyApp(),));
+  runApp(FutureBuilder(
+    future: SharedPreferences.getInstance(),
+    builder: (BuildContext context, AsyncSnapshot<SharedPreferences> snapshot) {
+      if (!snapshot.hasData) return Container();
+      return ThemeControllerWidget(initiallyIsDark: snapshot.data.getBool("initialDark") ?? false, child: MyApp(),);
+    }
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -26,7 +33,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    print(context.widget);
     return RouteControllerWidget(
       initialRoute: "about",
       child: MaterialApp(
@@ -35,7 +41,6 @@ class MyApp extends StatelessWidget {
         title: 'Tejas Mehta',
         theme: ThemeController.of(context).isDark ? _darkTheme : _lightTheme,
         builder: (BuildContext context, Widget child) {
-          print(ThemeController.of(context).isDark);
           return Navigator(
             onGenerateRoute: (_) => MaterialPageRoute(
               builder: (_) => Scaffold(
@@ -62,12 +67,12 @@ class MyApp extends StatelessWidget {
       actions: [
         MediaQuery.of(context).size.width > 500 ? FlatButton(
             onPressed: () => moveAndUpdateRoute("about", context, false),
-            child: Text("About")
+            child: createTextTab("About", context)
         ) : Container(),
         Padding(padding: EdgeInsets.all(10)),
         MediaQuery.of(context).size.width > 500 ? FlatButton(
             onPressed: () => moveAndUpdateRoute("projects", context, false),
-            child: Text("Projects")
+            child: createTextTab("Projects", context)
         ) : Container(),
         Padding(padding: EdgeInsets.all(10)),
         IconButton(
@@ -87,6 +92,11 @@ class MyApp extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Text createTextTab(String subject, BuildContext context) {
+    bool isCurrent = subject.toLowerCase() == RouteController.of(context).currentRoute;
+    return Text(subject, style: isCurrent ? TextStyle(decoration: TextDecoration.underline) : null,);
   }
 
   void moveAndUpdateRoute(String route, BuildContext context, bool drawer) {
