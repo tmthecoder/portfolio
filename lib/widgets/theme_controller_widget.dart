@@ -1,0 +1,46 @@
+/*
+ * Made by Tejas Mehta
+ * Made on Tuesday, August 25, 2020
+ * File Name: theme_controller_widget.dart
+*/
+import 'package:flutter/material.dart';
+import 'package:portfolio/widgets/theme_controller.dart';
+
+class ThemeControllerWidget extends StatefulWidget {
+  final bool initiallyIsDark;
+  final Widget child;
+
+  const ThemeControllerWidget({Key key, this.initiallyIsDark, this.child}) : super(key: key);
+  ///CreateState method
+  ///Sets the state of the app (rebuilt each time a UI change is needed)
+  @override
+  State<StatefulWidget> createState() {
+    return ThemeControllerWidgetState();
+  }
+}
+
+class ThemeControllerWidgetState extends State<ThemeControllerWidget> {
+  
+  bool _isDark = true;
+  
+  void toggleDark() {
+    setState(() {
+      _isDark = !_isDark;
+    });
+  }
+  
+  ///InitState method
+  ///Currently only sets a listener for any light/dark theme changes
+  @override
+  void initState() {
+    _isDark = widget.initiallyIsDark;
+    super.initState();
+  }
+  
+  ///Main widget build method
+  ///Builds the UI on this screen
+  @override
+  Widget build(BuildContext context) {
+    return ThemeController(isDark: _isDark, toggleDark: toggleDark, child: widget.child);
+  }
+}

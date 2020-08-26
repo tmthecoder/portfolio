@@ -1,25 +1,29 @@
 /*
  * Made by Tejas Mehta
  * Made on Tuesday, August 25, 2020
- * File Name: homepage.dart
+ * File Name: projects.dart
 */
 import 'package:flutter/material.dart';
+import 'package:portfolio/widgets/route_controller.dart';
 
-class Homepage extends StatefulWidget {
+class Projects extends StatefulWidget {
   ///CreateState method
   ///Sets the state of the app (rebuilt each time a UI change is needed)
   @override
   State<StatefulWidget> createState() {
-    return HomepageState();
+    return ProjectsState();
   }
 }
 
-class HomepageState extends State<Homepage> with WidgetsBindingObserver {
+class ProjectsState extends State<Projects> with WidgetsBindingObserver {
   ///InitState method
   ///Currently only sets a listener for any light/dark theme changes
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_){
+      RouteController.of(context).updateRoute("projects");
+    });
     WidgetsBinding.instance.addObserver(this);
   }
 
