@@ -2,4 +2,4 @@
 mkdir web
 shopt -s extglob
 mv !(web) web/
-mv web/netify-src/ .
+mv web/netify-src/* .
