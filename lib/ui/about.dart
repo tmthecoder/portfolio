@@ -3,9 +3,12 @@
  * Made on Tuesday, August 25, 2020
  * File Name: about.dart
 */
+import 'dart:convert';
+import 'dart:html';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:portfolio/widgets/route_controller.dart';
-import 'dart:html' as html;
 import 'dart:ui' as ui;
 
 class About extends StatefulWidget {
@@ -27,6 +30,11 @@ class AboutState extends State<About> with WidgetsBindingObserver {
       RouteController.of(context).updateRoute("about");
     });
     WidgetsBinding.instance.addObserver(this);
+
+  }
+
+  Future<String> _loadHtmlFromAssets() async {
+    return rootBundle.loadString('assets/stripe_code/index.html');
   }
 
   ///Dispose method
@@ -49,7 +57,24 @@ class AboutState extends State<About> with WidgetsBindingObserver {
   ///Builds the UI on this screen
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return FutureBuilder(
+      future: _loadHtmlFromAssets(),
+      builder: (context, snapshot) {
+        if (!snapshot.hasData) return Container();
+        ui.platformViewRegistry.registerViewFactory(
+            'iframe',
+                (int viewId) => IFrameElement()
+              ..width = '640'
+              ..height = '360'
+              ..style.border = 'none'
+              ..srcdoc = "${snapshot.data}");
+        return Container(
+          child : HtmlElementView(
+              key: UniqueKey(),
+              viewType: 'iframe'
+          ),
+        );
+      }
     );
   }
 }
