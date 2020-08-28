@@ -5,6 +5,8 @@
 */
 import 'package:flutter/material.dart';
 import 'package:portfolio/widgets/route_controller.dart';
+import 'dart:html' as html;
+import 'dart:ui' as ui;
 
 class About extends StatefulWidget {
   ///CreateState method
@@ -47,6 +49,7 @@ class AboutState extends State<About> with WidgetsBindingObserver {
   ///Builds the UI on this screen
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+    );
   }
 }
