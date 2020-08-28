@@ -22,7 +22,7 @@ jobs:
       run: flutter build web
     - name: Deploy
       run: |
-        cp web/functions build/web/
+        cp -r web/functions build/web/
         cp web/move.sh build/web/move.sh
         cd build/web
         git init
