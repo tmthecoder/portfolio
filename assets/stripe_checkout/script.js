@@ -6,7 +6,7 @@ var createCheckoutSession = function(priceId) {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
-      priceId: priceId
+      priceID: priceId
     })
   }).then(function(result) {
     return result.json();
@@ -22,8 +22,8 @@ var handleResult = function(result) {
 };
 
 var publishableKey = "pk_test_51HLBHOGe8QXeWO1XU6XrMBOkeitGqlZDLYcOfjubNCHREXTOaGHEKK9dIV0WaAn9IJ009LgsQj7vWPHeRIxFtgpV00i916v6aB";
-var basicPriceId = "price_1HLIj3Ge8QXeWO1XRc8le2qs";
-var proPriceId = "price_1HLIkfGe8QXeWO1X01B5MGY7";
+var basicPriceId = "price_1HLJr5Ge8QXeWO1XzL92REy5";
+var proPriceId = "price_1HLJrRGe8QXeWO1XmK0OJWQY";
 
 var stripe = Stripe(publishableKey);
 // Setup event handler to create a Checkout Session when button is clicked

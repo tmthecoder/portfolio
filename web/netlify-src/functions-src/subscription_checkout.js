@@ -23,6 +23,7 @@ exports.handler = async function(event) {
     if (!data.priceID) {
         const message = "Required information is missing!";
 
+        console.error(event.body);
         console.error(message);
 
         return {
