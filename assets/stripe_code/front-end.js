@@ -9,7 +9,7 @@ function resetButtonText() {
 }
 
 const handler = StripeCheckout.configure({
-  key: STRIPE_TEST_PUBLISHABLE_KEY,
+  key: 'pk_test_51HLBHOGe8QXeWO1XU6XrMBOkeitGqlZDLYcOfjubNCHREXTOaGHEKK9dIV0WaAn9IJ009LgsQj7vWPHeRIxFtgpV00i916v6aB',
   image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
   locale: 'auto',
   closed: function () {
