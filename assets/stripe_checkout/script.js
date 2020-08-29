@@ -48,7 +48,7 @@ document
         // Call Stripe.js method to redirect to the new Checkout page
         stripe
             .redirectToCheckout({
-              sessionId: data.sessionId
+              sessionId: data.id
             })
             .then(handleResult);
       });
