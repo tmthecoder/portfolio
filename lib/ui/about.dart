@@ -4,7 +4,7 @@
  * File Name: about.dart
 */
 import 'dart:convert';
-import 'dart:html';
+import 'dart:js' as js;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -33,9 +33,6 @@ class AboutState extends State<About> with WidgetsBindingObserver {
 
   }
 
-  Future<String> _loadHtmlFromAssets() async {
-    return rootBundle.loadString('assets/stripe_checkout/index.html');
-  }
 
   ///Dispose method
   ///Currently only removes the observer set in initState for the light/dark theme changes
@@ -57,24 +54,17 @@ class AboutState extends State<About> with WidgetsBindingObserver {
   ///Builds the UI on this screen
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: _loadHtmlFromAssets(),
-      builder: (context, snapshot) {
-        if (!snapshot.hasData) return Container();
-        ui.platformViewRegistry.registerViewFactory(
-            'iframe',
-                (int viewId) => IFrameElement()
-              ..width = '640'
-              ..height = '360'
-              ..style.border = 'none'
-              ..srcdoc = "${snapshot.data}");
-        return Container(
-          child : HtmlElementView(
-              key: UniqueKey(),
-              viewType: 'iframe'
-          ),
-        );
-      }
+    return ListView(
+      children: [
+        RaisedButton(
+          onPressed: callJS,
+          child: Text("Pay with Stripe"),
+        ),
+      ],
     );
+  }
+
+  void callJS() {
+    js.context.callMethod('createAndRedirect', ["price_1HLJr5Ge8QXeWO1XzL92REy5"]);
   }
 }

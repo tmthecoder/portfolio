@@ -1,5 +1,5 @@
 [build]
-  command = "chmod a+x move.sh && ./move.sh && npm install && npm run build"
+  command = "chmod a+x setup.sh && ./setup.sh"
   publish = "web"
   functions = "functions"
   NODE_ENV = "10.15.3"
