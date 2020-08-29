@@ -34,7 +34,7 @@ class AboutState extends State<About> with WidgetsBindingObserver {
   }
 
   Future<String> _loadHtmlFromAssets() async {
-    return rootBundle.loadString('assets/stripe_code/index.html');
+    return rootBundle.loadString('assets/stripe_checkout/index.html');
   }
 
   ///Dispose method

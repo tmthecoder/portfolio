@@ -4,9 +4,9 @@ const webpack = require("webpack");
 
 module.exports = {
   mode: process.env.NODE_ENV === "production" ? "production" : "development",
-  entry: "./web/assets/assets/stripe_code/front-end.js",
+  entry: "./web/assets/assets/stripe_checkout/script.js",
   output: {
-    path: __dirname + "/web/assets/assets/stripe_code/",
+    path: __dirname + "/web/assets/assets/stripe_checkout/",
     filename: "bundle.js"
   },
   plugins: [
