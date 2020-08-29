@@ -20,7 +20,7 @@ const handler = StripeCheckout.configure({
     let response, data;
 
     try {
-      response = await fetch(LAMBDA_ENDPOINT, {
+      response = await fetch("https://tmthecoder.netlify.app/.netlify/functions/purchase", {
         method: 'POST',
         body: JSON.stringify({
           token,
