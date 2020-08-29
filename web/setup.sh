@@ -7,4 +7,3 @@ rm -rf web/netlify-src
 mv web/netlify.toml netlify.toml
 npm install
 npm run build
-rm web/stripe_checkout.js
