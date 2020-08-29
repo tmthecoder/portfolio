@@ -20,7 +20,7 @@ exports.handler = async function(event) {
     const data = JSON.parse(event.body);
 
     // Make sure we have all required data. Otherwise, get outta here.
-    if (!data.priceID) {
+    if (!data.priceId) {
         const message = "Required information is missing!";
 
         console.error(event.body);
@@ -41,7 +41,7 @@ exports.handler = async function(event) {
         payment_method_types: ["card"],
         line_items: [
             {
-                price: data.priceID,
+                price: data.priceId,
                 quantity: 1,
             },
         ],
@@ -49,8 +49,13 @@ exports.handler = async function(event) {
         cancel_url: `https://tmthecoder.netlify.app/#/about`,
     });
 
-    res.send({
-        sessionId: session.id,
-    });
+    return {
+        statusCode,
+        headers,
+        body: JSON.stringify({
+            id: session.id,
+            message: "Charge successfully created!"
+        })
+    };
 
 };
