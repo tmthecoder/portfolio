@@ -17,7 +17,6 @@ class About extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return AboutState();
-
   }
 }
 
