@@ -40,6 +40,7 @@ class AboutState extends State<About> with WidgetsBindingObserver {
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
     super.dispose();
+
   }
 
   ///didChangePlatformBrightness method
