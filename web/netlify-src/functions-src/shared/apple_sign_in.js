@@ -1,4 +1,10 @@
 
+const statusCode = 200;
+const headers = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Headers": "Content-Type"
+};
+
 module.exports = {
     signInWithApple: function(event, packageID){
         if (event.httpMethod !== "POST") {
@@ -9,7 +15,7 @@ module.exports = {
             };
         }
         const redirect = `intent://callback?${new URLSearchParams(
-            request.body
+            event.body
         ).toString()}#Intent;package=${
             packageID
         };scheme=signinwithapple;end`;
