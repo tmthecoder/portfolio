@@ -6,7 +6,7 @@ const headers = {
 };
 
 module.exports = {
-    signInWithApple: function(event, callback, packageID){
+    signInWithApple: function(event, packageID){
         if (event.httpMethod !== "POST") {
             return {
                 statusCode,
