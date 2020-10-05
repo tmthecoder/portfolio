@@ -1,9 +1,4 @@
-require("dotenv").config();
-const AppleAuth = require("apple-auth");
-const jwt = require("jsonwebtoken");
-const bodyParser = require("body-parser");
-
-exports.handler = async function(event) {
+function signInWithApple(event, packageID) {
     if (event.httpMethod !== "POST") {
         return {
             statusCode,
@@ -14,8 +9,9 @@ exports.handler = async function(event) {
     const redirect = `intent://callback?${new URLSearchParams(
         request.body
     ).toString()}#Intent;package=${
-        process.env.ANDROID_PACKAGE_IDENTIFIER
+        packageID
     };scheme=signinwithapple;end`;
     console.log(`Redirecting to ${redirect}`);
     response.redirect(307, redirect);
 }
+
