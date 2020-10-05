@@ -6,7 +6,7 @@ const headers = {
 };
 
 module.exports = {
-    signInWithApple: function(event, packageID){
+    signInWithApple: function(event, callback, packageID){
         if (event.httpMethod !== "POST") {
             return {
                 statusCode,
@@ -20,12 +20,7 @@ module.exports = {
             packageID
         };scheme=signinwithapple;end`;
         console.log(`Redirecting to ${redirect}`);
-        return{
-            statusCode: 307,
-            headers: {
-                Location: redirect,
-            }
-        };
+        return redirect
     }
 }
 
