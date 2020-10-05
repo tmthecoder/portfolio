@@ -32,7 +32,6 @@ function createAndRedirect(priceId) {
     }
     createCheckoutSession(priceId).then(function(data) {
         // Call Stripe.js method to redirect to the new Checkout page
-        console.log(data.id);
         stripe
             .redirectToCheckout({
                 sessionId: data.id

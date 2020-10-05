@@ -40,7 +40,6 @@ class AboutState extends State<About> with WidgetsBindingObserver {
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
     super.dispose();
-
   }
 
   ///didChangePlatformBrightness method
@@ -55,13 +54,15 @@ class AboutState extends State<About> with WidgetsBindingObserver {
   ///Builds the UI on this screen
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        RaisedButton(
-          onPressed: callJS,
-          child: Text("Pay with Stripe"),
-        ),
-      ],
+    return Center(
+      child: ListView(
+        children: [
+          RaisedButton(
+            onPressed: callJS,
+            child: Text("Pay with Stripe"),
+          ),
+        ],
+      ),
     );
   }
 
