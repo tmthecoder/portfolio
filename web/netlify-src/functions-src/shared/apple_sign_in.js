@@ -20,7 +20,7 @@ module.exports = {
             packageID
         };scheme=signinwithapple;end`;
         console.log(`Redirecting to ${redirect}`);
-        response.redirect(307, redirect);
+        event.redirect(307, redirect);
     }
 }
 
