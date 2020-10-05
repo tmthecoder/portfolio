@@ -20,7 +20,12 @@ module.exports = {
             packageID
         };scheme=signinwithapple;end`;
         console.log(`Redirecting to ${redirect}`);
-        event.redirect(307, redirect);
+        return{
+            statusCode: 307,
+            headers: {
+                Location: redirect,
+            }
+        };
     }
 }
 
