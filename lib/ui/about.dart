@@ -176,7 +176,7 @@ class AboutState extends State<About> with WidgetsBindingObserver {
   Widget makeProfilePic() {
     return ClipOval(
       child: Image.asset(
-        "profilepic.jpg",
+        "assets/profilepic.jpg",
         height: 200,
         fit: BoxFit.cover,
       ),
