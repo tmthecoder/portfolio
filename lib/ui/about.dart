@@ -3,7 +3,6 @@
  * Made on Tuesday, August 25, 2020
  * File Name: about.dart
 */
-import 'dart:convert';
 // ignore: avoid_web_libraries_in_flutter
 import 'dart:js' as js;
 // ignore: avoid_web_libraries_in_flutter
@@ -13,7 +12,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:portfolio/widgets/BulletListText.dart';
 import 'package:portfolio/widgets/route_controller.dart';
-import 'dart:ui' as ui;
 
 class About extends StatefulWidget {
   ///CreateState method
@@ -62,7 +60,7 @@ class AboutState extends State<About> with WidgetsBindingObserver {
       child: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Padding(
-          padding: EdgeInsets.only(left: getDynamicPaddingSize(), right: getDynamicPaddingSize()),
+          padding: EdgeInsets.fromLTRB(getDynamicPaddingSize(), 20,  getDynamicPaddingSize(), 50),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
