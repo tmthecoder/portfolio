@@ -23,12 +23,15 @@ class MyApp extends StatelessWidget {
 
   final ThemeData _lightTheme = ThemeData(
     brightness: Brightness.light,
-    appBarTheme: AppBarTheme(color: Colors.transparent, shadowColor: Colors.transparent, iconTheme: IconThemeData(color: Colors.black))
+    appBarTheme: AppBarTheme(color: Colors.transparent, shadowColor: Colors.transparent, iconTheme: IconThemeData(color: Colors.black)),
+    textTheme: TextTheme(headline4: TextStyle(fontWeight: FontWeight.bold, color: Colors.black), bodyText2: TextStyle(fontSize: 16, height: 1.75)),
   );
   final ThemeData _darkTheme = ThemeData(
     brightness: Brightness.dark,
     scaffoldBackgroundColor: Colors.black,
-    appBarTheme: AppBarTheme(color: Colors.transparent, shadowColor: Colors.transparent, iconTheme: IconThemeData(color: Colors.white))
+    appBarTheme: AppBarTheme(color: Colors.transparent, shadowColor: Colors.transparent, iconTheme: IconThemeData(color: Colors.white)),
+    textTheme: TextTheme(headline4: TextStyle(fontWeight: FontWeight.bold, color: Colors.white), bodyText2: TextStyle(fontSize: 16, height: 1.75, color: Colors.grey.shade200)),
+
   );
   // This widget is the root of your application.
   @override
