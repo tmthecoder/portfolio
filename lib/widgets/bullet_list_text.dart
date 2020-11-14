@@ -1,12 +1,11 @@
-/*
- * Made by Tejas Mehta
- * Made on Wednesday, October 21, 2020
- * File Name: BulletListText.dart
-*/
+/// Made by Tejas Mehta
+/// Made on Wednesday, October 21, 2020
+/// File Name: bullet_list_text.dart
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:portfolio/widgets/theme_controller.dart';
+import 'package:portfolio/controller/theme_controller.dart';
 
 class BulletListText extends StatelessWidget {
   final String text;

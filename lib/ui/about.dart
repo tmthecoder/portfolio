@@ -1,19 +1,19 @@
-/*
- * Made by Tejas Mehta
- * Made on Tuesday, August 25, 2020
- * File Name: about.dart
-*/
-// ignore: avoid_web_libraries_in_flutter
-import 'dart:js' as js;
-// ignore: avoid_web_libraries_in_flutter
-import 'dart:html' as html;
+/// Made by Tejas Mehta
+/// Made on Tuesday, August 25, 2020
+/// File Name: about.dart
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:portfolio/widgets/BulletListText.dart';
-import 'package:portfolio/widgets/route_controller.dart';
+import 'package:portfolio/widgets/bullet_list_text.dart';
+import 'package:portfolio/controller/route_controller.dart';
+// ignore: avoid_web_libraries_in_flutter
+import 'dart:html' as html;
+// ignore: avoid_web_libraries_in_flutter
+import 'dart:js' as js;
 
 class About extends StatefulWidget {
+  static final String route = "about";
   ///CreateState method
   ///Sets the state of the app (rebuilt each time a UI change is needed)
   @override
@@ -166,9 +166,9 @@ class AboutState extends State<About> with WidgetsBindingObserver {
   }
 
   double getDynamicPaddingSize() {
-    double screenwidth = MediaQuery.of(context).size.width;
+    double width = MediaQuery.of(context).size.width;
     double multiplier = MediaQuery.of(context).size.width/5000/1.5;
-    return screenwidth * multiplier;
+    return width * multiplier;
   }
 
   Widget makeProfilePic() {

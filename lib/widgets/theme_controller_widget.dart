@@ -1,10 +1,9 @@
-/*
- * Made by Tejas Mehta
- * Made on Tuesday, August 25, 2020
- * File Name: theme_controller_widget.dart
-*/
+/// Made by Tejas Mehta
+/// Made on Tuesday, August 25, 2020
+/// File Name: theme_controller_widget.dart
+
 import 'package:flutter/material.dart';
-import 'package:portfolio/widgets/theme_controller.dart';
+import 'package:portfolio/controller/theme_controller.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ThemeControllerWidget extends StatefulWidget {

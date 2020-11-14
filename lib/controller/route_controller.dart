@@ -1,8 +1,6 @@
-/*
- * Made by Tejas Mehta
- * Made on Tuesday, August 25, 2020
- * File Name: route_controller.dart
-*/
+/// Made by Tejas Mehta
+/// Made on Tuesday, August 25, 2020
+/// File Name: route_controller.dart
 
 import 'package:flutter/cupertino.dart';
 

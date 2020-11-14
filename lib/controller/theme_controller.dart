@@ -1,3 +1,7 @@
+/// Made by Tejas Mehta
+/// Made on Tuesday, August 25, 2020
+/// File Name: theme_controller_widget.dart
+
 import 'package:flutter/material.dart';
 
 class ThemeController extends InheritedWidget {

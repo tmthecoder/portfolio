@@ -1,28 +1,33 @@
 /// Made by Tejas Mehta
-/// Made on Tuesday, August 25, 2020
-/// File Name: projects.dart
+/// Made on Friday, November 13, 2020
+/// File Name: project_viewer.dart
 
 import 'package:flutter/material.dart';
 import 'package:portfolio/controller/route_controller.dart';
 
-class Projects extends StatefulWidget {
-  static final String route = 'projects';
+class ProjectViewer extends StatefulWidget {
+  static final String route = "project/:key";
+  final String projectKey;
+
+  const ProjectViewer({Key key, this.projectKey}) : super(key: key);
   ///CreateState method
   ///Sets the state of the app (rebuilt each time a UI change is needed)
   @override
   State<StatefulWidget> createState() {
-    return ProjectsState();
+    print(projectKey);
+    return ProjectViewerState();
   }
 }
 
-class ProjectsState extends State<Projects> with WidgetsBindingObserver {
+class ProjectViewerState extends State<ProjectViewer>
+    with WidgetsBindingObserver {
   ///InitState method
   ///Currently only sets a listener for any light/dark theme changes
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_){
-      RouteController.of(context).updateRoute("projects");
+      RouteController.of(context).updateRoute("project/${widget.projectKey}");
     });
     WidgetsBinding.instance.addObserver(this);
   }

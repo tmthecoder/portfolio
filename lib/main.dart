@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/controller/fluro_controller.dart';
+import 'package:portfolio/controller/routing_path.dart';
 import 'package:portfolio/ui/about.dart';
+import 'package:portfolio/ui/project_viewer.dart';
 import 'package:portfolio/ui/projects.dart';
-import 'package:portfolio/widgets/route_controller.dart';
+import 'package:portfolio/controller/route_controller.dart';
 import 'package:portfolio/widgets/route_controller_widget.dart';
-import 'package:portfolio/widgets/theme_controller.dart';
+import 'package:portfolio/controller/theme_controller.dart';
 import 'package:portfolio/widgets/theme_controller_widget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
+  FluroController.setupRouter();
   runApp(FutureBuilder(
     future: SharedPreferences.getInstance(),
     builder: (BuildContext context, AsyncSnapshot<SharedPreferences> snapshot) {
@@ -31,8 +35,8 @@ class MyApp extends StatelessWidget {
     scaffoldBackgroundColor: Colors.black,
     appBarTheme: AppBarTheme(color: Colors.transparent, shadowColor: Colors.transparent, iconTheme: IconThemeData(color: Colors.white)),
     textTheme: TextTheme(headline4: TextStyle(fontWeight: FontWeight.bold, color: Colors.white), bodyText2: TextStyle(fontSize: 16, height: 1.75, color: Colors.grey.shade200)),
-
   );
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -55,11 +59,8 @@ class MyApp extends StatelessWidget {
             ),
           );
         },
-        initialRoute: '/about',
-        routes: {
-          '/about': (context) => About(),
-          '/projects': (context) => Projects(),
-        },
+        initialRoute: About.route,
+        onGenerateRoute: FluroController.router.generator,
       ),
     );
   }
