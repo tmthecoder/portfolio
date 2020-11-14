@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/controller/fluro_controller.dart';
-import 'package:portfolio/controller/routing_path.dart';
 import 'package:portfolio/ui/about.dart';
-import 'package:portfolio/ui/project_viewer.dart';
-import 'package:portfolio/ui/projects.dart';
 import 'package:portfolio/controller/route_controller.dart';
 import 'package:portfolio/widgets/route_controller_widget.dart';
 import 'package:portfolio/controller/theme_controller.dart';
@@ -100,6 +97,7 @@ class MyApp extends StatelessWidget {
 
   Text createTextTab(String subject, BuildContext context) {
     bool isCurrent = subject.toLowerCase() == RouteController.of(context).currentRoute;
+    if (subject.toLowerCase().contains("project") && RouteController.of(context).currentRoute.contains("project")) isCurrent = true;
     return Text(subject, style: isCurrent ? TextStyle(decoration: TextDecoration.underline) : null,);
   }
 
@@ -111,5 +109,4 @@ class MyApp extends StatelessWidget {
       _scaffoldKey.currentState.openEndDrawer();
     }
   }
-
 }

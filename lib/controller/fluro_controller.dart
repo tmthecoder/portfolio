@@ -26,4 +26,6 @@ class FluroController {
     router.define(Projects.route, handler: _projectListHandler, transitionType: TransitionType.fadeIn);
     router.define(ProjectViewer.route, handler: _projectViewerHandler, transitionType: TransitionType.fadeIn);
   }
+
+
 }

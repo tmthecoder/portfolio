@@ -5,9 +5,9 @@
 import 'package:flutter/material.dart';
 
 class ProjectListItem extends StatelessWidget {
-  final Image image;
-  final Text title;
-  final Text description;
+  final ImageProvider image;
+  final String title;
+  final String description;
   final double width;
 
   const ProjectListItem({Key key, this.image, this.title, this.description, this.width}) : super(key: key);
@@ -26,7 +26,11 @@ class ProjectListItem extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-
+              Image(image: image, width: width,),
+              Padding(padding: EdgeInsets.all(5),),
+              Text(title, style: Theme.of(context).textTheme.headline4,),
+              Padding(padding: EdgeInsets.all(5),),
+              Text(description, style: Theme.of(context).textTheme.bodyText2,)
             ],
           ),
         ),
