@@ -4,3 +4,15 @@
   functions = "functions"
   NODE_ENV = "10.15.3"
   NPM_VERSION = "6.9.0"
+
+[[redirects]]
+  from = "/about"
+  to = "/#/about"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/projects"
+  to = "/#/projects"
+  status = 200
+  force = true
