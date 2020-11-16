@@ -50,15 +50,17 @@ class ProjectsState extends State<Projects> with WidgetsBindingObserver {
   ///Builds the UI on this screen
   @override
   Widget build(BuildContext context) {
-    double paddingSize = CommonMethods.getDynamicPaddingSize(context);
+    double width = MediaQuery.of(context).size.width;
+    double paddingSize = CommonMethods.getDynamicPaddingSize(width, width/5000/1.5);
+    int axisCount = CommonMethods.getGridAxisCount(MediaQuery.of(context).size.width, paddingSize, 300);
     return Scrollbar(
       child: CustomScrollView(
         slivers: [
           SliverPadding(
-            padding: EdgeInsets.fromLTRB(CommonMethods.getDynamicPaddingSize(context), 8.0, CommonMethods.getDynamicPaddingSize(context), 10),
+            padding: EdgeInsets.fromLTRB(paddingSize, 0, paddingSize, 10),
             sliver: SliverGrid.count(
-              childAspectRatio: 0.5,
-              crossAxisCount: CommonMethods.getGridAxisCount(MediaQuery.of(context).size.width - paddingSize * 2, 300),
+              childAspectRatio: CommonMethods.getChildRatioCount(axisCount, 1.15),
+              crossAxisCount: axisCount,
               crossAxisSpacing: 10,
               mainAxisSpacing: 10,
               children: [
@@ -70,13 +72,13 @@ class ProjectsState extends State<Projects> with WidgetsBindingObserver {
                 ),
                 ProjectListItem(
                   image: AssetImage("assets/WebsiteLogo.png"),
-                  title: "TESR",
+                  title: "FTC Scouring and Scoring",
                   description: "ttteehjsagd fsahdfg ashdfg  asdhgf adhkf agj ds sdf ",
                   width: 320,
                 ),
                 ProjectListItem(
                   image: AssetImage("assets/WebsiteLogo.png"),
-                  title: "TESR",
+                  title: "Dargon2",
                   description: "ttteehjsagd fsahdfg ashdfg  asdhgf adhkf agj ds sdf ",
                   width: 320,
                 ),

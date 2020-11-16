@@ -12,8 +12,9 @@ class DynamicPadding extends StatelessWidget {
   ///Builds the UI on this screen
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     return Padding(
-      padding: EdgeInsets.fromLTRB(CommonMethods.getDynamicPaddingSize(context), 20,  CommonMethods.getDynamicPaddingSize(context), 50),
+      padding: EdgeInsets.fromLTRB(CommonMethods.getDynamicPaddingSize(width, width/5000/1.5), 20,  CommonMethods.getDynamicPaddingSize(width, width/5000/1.5), 50),
       child: child,
     );
   }

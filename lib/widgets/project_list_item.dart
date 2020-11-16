@@ -31,7 +31,7 @@ class ProjectListItem extends StatelessWidget {
               children: [
                 Image(image: image,),
                 Padding(padding: EdgeInsets.all(15),),
-                Text(title, style: Theme.of(context).textTheme.headline4,),
+                Text(title, style: Theme.of(context).textTheme.headline6.merge(TextStyle(fontWeight: FontWeight.bold)), textAlign: TextAlign.center,),
                 Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: Text(description, style: Theme.of(context).textTheme.bodyText2,),
