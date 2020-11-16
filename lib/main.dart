@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/controller/fluro_controller.dart';
+import 'package:portfolio/util/fluro_controller.dart';
 import 'package:portfolio/ui/about.dart';
-import 'package:portfolio/controller/route_controller.dart';
+import 'package:portfolio/util/route_controller.dart';
 import 'package:portfolio/widgets/route_controller_widget.dart';
-import 'package:portfolio/controller/theme_controller.dart';
+import 'package:portfolio/util/theme_controller.dart';
 import 'package:portfolio/widgets/theme_controller_widget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

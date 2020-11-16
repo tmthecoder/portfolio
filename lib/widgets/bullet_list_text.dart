@@ -5,7 +5,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:portfolio/controller/theme_controller.dart';
 
 class BulletListText extends StatelessWidget {
   final String text;

@@ -6,11 +6,13 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:portfolio/widgets/bullet_list_text.dart';
-import 'package:portfolio/controller/route_controller.dart';
+import 'package:portfolio/util/route_controller.dart';
 // ignore: avoid_web_libraries_in_flutter
 import 'dart:html' as html;
 // ignore: avoid_web_libraries_in_flutter
 import 'dart:js' as js;
+
+import 'package:portfolio/widgets/dynamic_padding.dart';
 
 class About extends StatefulWidget {
   static final String route = "about";
@@ -59,8 +61,7 @@ class AboutState extends State<About> with WidgetsBindingObserver {
     return Scrollbar(
       child: SingleChildScrollView(
         scrollDirection: Axis.vertical,
-        child: Padding(
-          padding: EdgeInsets.fromLTRB(getDynamicPaddingSize(), 20,  getDynamicPaddingSize(), 50),
+        child: DynamicPadding(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -165,11 +166,7 @@ class AboutState extends State<About> with WidgetsBindingObserver {
     html.Url.revokeObjectUrl(url);
   }
 
-  double getDynamicPaddingSize() {
-    double width = MediaQuery.of(context).size.width;
-    double multiplier = MediaQuery.of(context).size.width/5000/1.5;
-    return width * multiplier;
-  }
+
 
   Widget makeProfilePic() {
     return ClipOval(

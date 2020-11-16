@@ -3,7 +3,10 @@
 /// File Name: projects.dart
 
 import 'package:flutter/material.dart';
-import 'package:portfolio/controller/route_controller.dart';
+import 'package:portfolio/util/common_methods.dart';
+import 'package:portfolio/util/route_controller.dart';
+import 'package:portfolio/widgets/dynamic_padding.dart';
+import 'package:portfolio/widgets/project_list_item.dart';
 
 class Projects extends StatefulWidget {
   static final String route = 'projects';
@@ -47,6 +50,59 @@ class ProjectsState extends State<Projects> with WidgetsBindingObserver {
   ///Builds the UI on this screen
   @override
   Widget build(BuildContext context) {
-    return Container();
+    double paddingSize = CommonMethods.getDynamicPaddingSize(context);
+    return Scrollbar(
+      child: CustomScrollView(
+        slivers: [
+          SliverPadding(
+            padding: EdgeInsets.fromLTRB(CommonMethods.getDynamicPaddingSize(context), 8.0, CommonMethods.getDynamicPaddingSize(context), 10),
+            sliver: SliverGrid.count(
+              childAspectRatio: 0.5,
+              crossAxisCount: CommonMethods.getGridAxisCount(MediaQuery.of(context).size.width - paddingSize * 2, 300),
+              crossAxisSpacing: 10,
+              mainAxisSpacing: 10,
+              children: [
+                ProjectListItem(
+                  image: AssetImage("assets/WebsiteLogo.png"),
+                  title: "TESR",
+                  description: "ttteehjsagd fsahdfg ashdfg  asdhgf adhkf agj ds sdf ",
+                  width: 320,
+                ),
+                ProjectListItem(
+                  image: AssetImage("assets/WebsiteLogo.png"),
+                  title: "TESR",
+                  description: "ttteehjsagd fsahdfg ashdfg  asdhgf adhkf agj ds sdf ",
+                  width: 320,
+                ),
+                ProjectListItem(
+                  image: AssetImage("assets/WebsiteLogo.png"),
+                  title: "TESR",
+                  description: "ttteehjsagd fsahdfg ashdfg  asdhgf adhkf agj ds sdf ",
+                  width: 320,
+                ),
+                ProjectListItem(
+                  image: AssetImage("assets/WebsiteLogo.png"),
+                  title: "TESR",
+                  description: "ttteehjsagd fsahdfg ashdfg  asdhgf adhkf agj ds sdf ",
+                  width: 320,
+                ),
+                ProjectListItem(
+                  image: AssetImage("assets/WebsiteLogo.png"),
+                  title: "TESR",
+                  description: "ttteehjsagd fsahdfg ashdfg  asdhgf adhkf agj ds sdf ",
+                  width: 320,
+                ),
+                ProjectListItem(
+                  image: AssetImage("assets/WebsiteLogo.png"),
+                  title: "TESR",
+                  description: "ttteehjsagd fsahdfg ashdfg  asdhgf adhkf agj ds sdf ",
+                  width: 300,
+                )
+              ],
+            ),
+          )
+        ],
+      ),
+    );
   }
 }

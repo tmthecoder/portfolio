@@ -3,7 +3,7 @@
 /// File Name: theme_controller_widget.dart
 
 import 'package:flutter/material.dart';
-import 'package:portfolio/controller/theme_controller.dart';
+import 'package:portfolio/util/theme_controller.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ThemeControllerWidget extends StatefulWidget {
