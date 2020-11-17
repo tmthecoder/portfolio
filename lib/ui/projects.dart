@@ -3,6 +3,7 @@
 /// File Name: projects.dart
 
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:portfolio/util/common_methods.dart';
 import 'package:portfolio/util/route_controller.dart';
 import 'package:portfolio/widgets/dynamic_padding.dart';
@@ -57,7 +58,7 @@ class ProjectsState extends State<Projects> with WidgetsBindingObserver {
       child: CustomScrollView(
         slivers: [
           SliverPadding(
-            padding: EdgeInsets.fromLTRB(paddingSize, 0, paddingSize, 10),
+            padding: EdgeInsets.fromLTRB(paddingSize, 20, paddingSize, 10),
             sliver: SliverGrid.count(
               childAspectRatio: CommonMethods.getChildRatioCount(axisCount, 1.15),
               crossAxisCount: axisCount,
@@ -72,14 +73,14 @@ class ProjectsState extends State<Projects> with WidgetsBindingObserver {
                 ),
                 ProjectListItem(
                   image: AssetImage("assets/WebsiteLogo.png"),
-                  title: "FTC Scouring and Scoring",
-                  description: "ttteehjsagd fsahdfg ashdfg  asdhgf adhkf agj ds sdf ",
+                  title: "dargon2",
+                  description: "A simple, versatile, and strong library to hash with Argon2 in Dart",
                   width: 320,
                 ),
                 ProjectListItem(
                   image: AssetImage("assets/WebsiteLogo.png"),
-                  title: "Dargon2",
-                  description: "ttteehjsagd fsahdfg ashdfg  asdhgf adhkf agj ds sdf ",
+                  title: "FTC Scouring and Scoring",
+                  description: "An intuitive, real-time, cloud-based Scouting and Scoring application built for ease and synchronization",
                   width: 320,
                 ),
                 ProjectListItem(

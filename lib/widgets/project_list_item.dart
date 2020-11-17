@@ -25,6 +25,9 @@ class ProjectListItem extends StatelessWidget {
         child: ClipRRect(
           borderRadius: BorderRadius.circular(15),
           child: InkWell(
+            onTap: () {
+
+            },
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.start,
@@ -35,6 +38,14 @@ class ProjectListItem extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: Text(description, style: Theme.of(context).textTheme.bodyText2,),
+                ),
+                Spacer(),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 0, 10, 5),
+                    child: Text("More Details...", textAlign: TextAlign.right, style: TextStyle(color: Colors.grey[700], fontSize: 14),),
+                  )
                 )
               ],
             ),
