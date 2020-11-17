@@ -15,8 +15,4 @@ class CommonMethods {
     }
     return (screenWidth - rlPadding * 2) ~/ itemWidth;
   }
-
-  static double getChildRatioCount(int axisCount, double singleRatio) {
-    return singleRatio - 0.1 * axisCount;
-  }
 }

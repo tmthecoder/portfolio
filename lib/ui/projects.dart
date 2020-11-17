@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:portfolio/util/common_methods.dart';
 import 'package:portfolio/util/route_controller.dart';
-import 'package:portfolio/widgets/dynamic_padding.dart';
 import 'package:portfolio/widgets/project_list_item.dart';
 
 class Projects extends StatefulWidget {
@@ -51,6 +50,7 @@ class ProjectsState extends State<Projects> with WidgetsBindingObserver {
   ///Builds the UI on this screen
   @override
   Widget build(BuildContext context) {
+    // Get the width and use it to get the axis count and dynamic padding size
     double width = MediaQuery.of(context).size.width;
     double paddingSize = CommonMethods.getDynamicPaddingSize(width, width/5000/1.5);
     int axisCount = CommonMethods.getGridAxisCount(MediaQuery.of(context).size.width, paddingSize, 300);
@@ -59,53 +59,60 @@ class ProjectsState extends State<Projects> with WidgetsBindingObserver {
         slivers: [
           SliverPadding(
             padding: EdgeInsets.fromLTRB(paddingSize, 20, paddingSize, 10),
-            sliver: SliverGrid.count(
-              childAspectRatio: CommonMethods.getChildRatioCount(axisCount, 1.15),
+            sliver: SliverStaggeredGrid.count(
+              key: ObjectKey(axisCount),
               crossAxisCount: axisCount,
               crossAxisSpacing: 10,
               mainAxisSpacing: 10,
-              children: [
-                ProjectListItem(
-                  image: AssetImage("assets/WebsiteLogo.png"),
-                  title: "TESR",
-                  description: "ttteehjsagd fsahdfg ashdfg  asdhgf adhkf agj ds sdf ",
-                  width: 320,
-                ),
-                ProjectListItem(
-                  image: AssetImage("assets/WebsiteLogo.png"),
-                  title: "dargon2",
-                  description: "A simple, versatile, and strong library to hash with Argon2 in Dart",
-                  width: 320,
-                ),
-                ProjectListItem(
-                  image: AssetImage("assets/WebsiteLogo.png"),
-                  title: "FTC Scouring and Scoring",
-                  description: "An intuitive, real-time, cloud-based Scouting and Scoring application built for ease and synchronization",
-                  width: 320,
-                ),
-                ProjectListItem(
-                  image: AssetImage("assets/WebsiteLogo.png"),
-                  title: "TESR",
-                  description: "ttteehjsagd fsahdfg ashdfg  asdhgf adhkf agj ds sdf ",
-                  width: 320,
-                ),
-                ProjectListItem(
-                  image: AssetImage("assets/WebsiteLogo.png"),
-                  title: "TESR",
-                  description: "ttteehjsagd fsahdfg ashdfg  asdhgf adhkf agj ds sdf ",
-                  width: 320,
-                ),
-                ProjectListItem(
-                  image: AssetImage("assets/WebsiteLogo.png"),
-                  title: "TESR",
-                  description: "ttteehjsagd fsahdfg ashdfg  asdhgf adhkf agj ds sdf ",
-                  width: 300,
-                )
-              ],
+              children: getItems(),
+              staggeredTiles: List.filled(6, StaggeredTile.fit(1)),
             ),
           )
         ],
       ),
     );
+  }
+
+  /// A method to return a list with all of the items, each of which is of type
+  /// [ProjectListItem] as each item will signify a different project of mine
+  List<Widget> getItems() {
+    return [
+      ProjectListItem(
+        image: AssetImage("assets/WebsiteLogo.png"),
+        title: "TESR",
+        description: "ttteehjsagd fsahdfg ashdfg  asdhgf adhkf agj ds sdf ",
+        width: 320,
+      ),
+      ProjectListItem(
+        image: AssetImage("assets/WebsiteLogo.png"),
+        title: "dargon2",
+        description: "A quick, versatile, and strong library using the Argon2 Algorithm to hash passwords in Dart",
+        width: 320,
+      ),
+      ProjectListItem(
+        image: AssetImage("assets/WebsiteLogo.png"),
+        title: "FTC Scouring and Scoring",
+        description: "An intuitive, real-time, cloud-based Scouting and Scoring application built for ease and synchronization",
+        width: 320,
+      ),
+      ProjectListItem(
+        image: AssetImage("assets/WebsiteLogo.png"),
+        title: "TESR",
+        description: "ttteehjsagd fsahdfg ashdfg  asdhgf adhkf agj ds sdf ",
+        width: 320,
+      ),
+      ProjectListItem(
+        image: AssetImage("assets/WebsiteLogo.png"),
+        title: "TESR",
+        description: "ttteehjsagd fsahdfg ashdfg  asdhgf adhkf agj ds sdf ",
+        width: 320,
+      ),
+      ProjectListItem(
+        image: AssetImage("assets/WebsiteLogo.png"),
+        title: "TESR",
+        description: "ttteehjsagd fsahdfg ashdfg  asdhgf adhkf agj ds sdf ",
+        width: 300,
+      )
+    ];
   }
 }

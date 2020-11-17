@@ -17,7 +17,6 @@ class ProjectListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: width,
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
@@ -31,6 +30,7 @@ class ProjectListItem extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Image(image: image,),
                 Padding(padding: EdgeInsets.all(15),),
@@ -39,11 +39,11 @@ class ProjectListItem extends StatelessWidget {
                   padding: const EdgeInsets.all(15.0),
                   child: Text(description, style: Theme.of(context).textTheme.bodyText2,),
                 ),
-                Spacer(),
+                Padding(padding: const EdgeInsets.all(10),),
                 Align(
                   alignment: Alignment.centerRight,
                   child: Padding(
-                    padding: const EdgeInsets.fromLTRB(0, 0, 10, 5),
+                    padding: const EdgeInsets.fromLTRB(0, 0, 15, 10),
                     child: Text("More Details...", textAlign: TextAlign.right, style: TextStyle(color: Colors.grey[700], fontSize: 14),),
                   )
                 )
