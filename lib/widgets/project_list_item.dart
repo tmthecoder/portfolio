@@ -3,14 +3,16 @@
 /// File Name: project_list_item.dart
 
 import 'package:flutter/material.dart';
+import 'package:portfolio/util/project_status.dart';
+import 'package:portfolio/util/theme_controller.dart';
 
 class ProjectListItem extends StatelessWidget {
   final ImageProvider image;
   final String title;
   final String description;
-  final double width;
+  final ProjectStatus projectStatus;
 
-  const ProjectListItem({Key key, @required this.image, @required this.title, @required this.description, @required this.width}) : super(key: key);
+  const ProjectListItem({Key key, @required this.image, @required this.title, @required this.description, @required this.projectStatus}) : super(key: key);
 
   ///Main widget build method
   ///Builds the UI on this screen
@@ -32,6 +34,7 @@ class ProjectListItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
+                Padding(padding: EdgeInsets.all(10),),
                 Image(image: image,),
                 Padding(padding: EdgeInsets.all(15),),
                 Text(title, style: Theme.of(context).textTheme.headline6.merge(TextStyle(fontWeight: FontWeight.bold)), textAlign: TextAlign.center,),
@@ -39,18 +42,63 @@ class ProjectListItem extends StatelessWidget {
                   padding: const EdgeInsets.all(15.0),
                   child: Text(description, style: Theme.of(context).textTheme.bodyText2,),
                 ),
-                Padding(padding: const EdgeInsets.all(10),),
+                buildProjectStatus(context),
+                Padding(padding: const EdgeInsets.all(10)),
                 Align(
                   alignment: Alignment.centerRight,
                   child: Padding(
                     padding: const EdgeInsets.fromLTRB(0, 0, 15, 10),
-                    child: Text("More Details...", textAlign: TextAlign.right, style: TextStyle(color: Colors.grey[700], fontSize: 14),),
+                    child: Text("More Details...", textAlign: TextAlign.right, style: TextStyle(color: ThemeController.of(context).isDark ? Colors.grey[400] : Colors.grey[700], fontSize: 14),),
                   )
                 )
               ],
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  /// A method to translate the projectStatus enum given into a readable string
+  /// paired with its respective color: Green for released, Yellow for beta & alpha,
+  /// Orange for in development, and Red for starting development
+  Widget buildProjectStatus(BuildContext context) {
+    Color color = Colors.green;
+    String projectString = "";
+    switch (projectStatus) {
+      case ProjectStatus.RELEASED:
+        color = Colors.green;
+        projectString = "Released!";
+        break;
+      case ProjectStatus.BETA:
+        color = Colors.yellow;
+        projectString = "In Beta";
+        break;
+      case ProjectStatus.ALPHA:
+        color = Colors.yellow;
+        projectString = "In Alpha";
+        break;
+      case ProjectStatus.DEVELOPMENT:
+        color = Colors.orange;
+        projectString = "In Development";
+        break;
+      case ProjectStatus.STARTDEV:
+        color = Colors.red;
+        projectString = "Starting Development";
+        break;
+    }
+    return RichText(
+      text: TextSpan(
+        children: [
+          TextSpan(
+            text: "Project Status: ",
+            style: Theme.of(context).textTheme.subtitle2,
+          ),
+          TextSpan(
+            text: projectString,
+            style: Theme.of(context).textTheme.subtitle2.merge(TextStyle(color: color))
+          )
+        ]
       ),
     );
   }
