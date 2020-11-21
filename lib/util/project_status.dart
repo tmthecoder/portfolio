@@ -7,5 +7,4 @@ enum ProjectStatus {
   BETA,
   ALPHA,
   DEVELOPMENT,
-  STARTDEV
 }

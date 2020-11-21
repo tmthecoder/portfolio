@@ -60,8 +60,8 @@ class ProjectListItem extends StatelessWidget {
   }
 
   /// A method to translate the projectStatus enum given into a readable string
-  /// paired with its respective color: Green for released, Yellow for beta & alpha,
-  /// Orange for in development, and Red for starting development
+  /// paired with its respective color: Green for released, Yellow for beta,
+  /// Orange for alpha, and Red for in-development
   Widget buildProjectStatus(BuildContext context) {
     Color color = Colors.green;
     String projectString = "";
@@ -75,16 +75,12 @@ class ProjectListItem extends StatelessWidget {
         projectString = "In Beta";
         break;
       case ProjectStatus.ALPHA:
-        color = Colors.yellow;
+        color = Colors.orange;
         projectString = "In Alpha";
         break;
       case ProjectStatus.DEVELOPMENT:
-        color = Colors.orange;
-        projectString = "In Development";
-        break;
-      case ProjectStatus.STARTDEV:
         color = Colors.red;
-        projectString = "Starting Development";
+        projectString = "In Development";
         break;
     }
     return RichText(
