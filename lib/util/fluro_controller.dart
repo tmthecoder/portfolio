@@ -21,10 +21,10 @@ class FluroController {
         ProjectViewer(projectKey: params["key"][0],)
   );
   static void setupRouter() {
-    router.define("/", handler: _aboutHandler, transitionType: TransitionType.fadeIn);
-    router.define(About.route, handler: _aboutHandler, transitionType: TransitionType.fadeIn);
-    router.define(Projects.route, handler: _projectListHandler, transitionType: TransitionType.fadeIn);
-    router.define(ProjectViewer.route, handler: _projectViewerHandler, transitionType: TransitionType.fadeIn);
+    router.define("/", handler: _aboutHandler, transitionType: TransitionType.materialFullScreenDialog);
+    router.define(About.route, handler: _aboutHandler, transitionType: TransitionType.materialFullScreenDialog);
+    router.define(Projects.route, handler: _projectListHandler, transitionType: TransitionType.materialFullScreenDialog);
+    router.define(ProjectViewer.route, handler: _projectViewerHandler, transitionType: TransitionType.materialFullScreenDialog);
   }
 
 
