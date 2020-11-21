@@ -97,6 +97,7 @@ class ProjectsState extends State<Projects> with WidgetsBindingObserver {
         description: "An intuitive, real-time, cloud-based Scouting and Scoring application built for ease and synchronization",
         projectStatus: ProjectStatus.RELEASED,
       ),
+      
       ProjectListItem(
         image: AssetImage("assets/WebsiteLogo.png"),
         title: "blinkOS - A hackSugar Project",
