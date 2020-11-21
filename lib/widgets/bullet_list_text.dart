@@ -17,6 +17,7 @@ class BulletListText extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 15.0),
       child: Row(
+        textBaseline: TextBaseline.alphabetic,
         crossAxisAlignment: CrossAxisAlignment.baseline,
         children: [
           Text("-"),
