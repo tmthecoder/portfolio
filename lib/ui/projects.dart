@@ -104,7 +104,7 @@ class ProjectsState extends State<Projects> with WidgetsBindingObserver {
         projectStatus: ProjectStatus.ALPHA,
       ),
       ProjectListItem(
-        image: AssetImage("assets/WebsiteLogo.png"),
+        image: AssetImage("assets/projects/weasel/website_logo.png"),
         title: "Weasel - A hackSugar Project",
         description: "An encrypted messaging client built to secure and improve upon already widespread SMS protocol.",
         projectStatus: ProjectStatus.DEVELOPMENT,
