@@ -9,6 +9,7 @@ import 'package:portfolio/ui/projects.dart';
 /// File Name: fluro_controller.dart
 
 class FluroController {
+  //Setup fluro's handlers and routes
   static FluroRouter router = FluroRouter();
   static Handler _aboutHandler = Handler(
       handlerFunc: (BuildContext context, Map<String, dynamic> params) =>
@@ -20,6 +21,8 @@ class FluroController {
     handlerFunc: (BuildContext context, Map<String, dynamic> params) =>
         ProjectViewer(projectKey: params["key"][0],)
   );
+
+  /// A method to setup the Fluro Router and add all of the necessary routes used in this webpage
   static void setupRouter() {
     router.define("/", handler: _aboutHandler, transitionType: TransitionType.materialFullScreenDialog);
     router.define(About.route, handler: _aboutHandler, transitionType: TransitionType.materialFullScreenDialog);

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 /// Made by Tejas Mehta
 /// Made on Tuesday, August 25, 2020
 /// File Name: about.dart
@@ -5,6 +6,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:portfolio/util/common_methods.dart';
+import 'package:portfolio/util/theme_controller.dart';
 import 'package:portfolio/widgets/bullet_list_text.dart';
 import 'package:portfolio/util/route_controller.dart';
 // ignore: avoid_web_libraries_in_flutter
@@ -13,6 +16,7 @@ import 'dart:html' as html;
 import 'dart:js' as js;
 
 import 'package:portfolio/widgets/dynamic_padding.dart';
+import 'package:portfolio/widgets/image_link.dart';
 
 class About extends StatefulWidget {
   static final String route = "about";
@@ -68,6 +72,8 @@ class AboutState extends State<About> with WidgetsBindingObserver {
               Center(
                 child: makeProfilePic(),
               ),
+              Padding(padding: const EdgeInsets.all(10)),
+              makeSocialIcons(),
               Padding(padding: const EdgeInsets.all(5)),
               Text("About", style: Theme.of(context).textTheme.headline4,),
               Padding(padding: const EdgeInsets.all(5)),
@@ -100,6 +106,41 @@ class AboutState extends State<About> with WidgetsBindingObserver {
     );
   }
 
+  /// The method to create my profile picture seen at the top of the webpage
+  Widget makeProfilePic() {
+    return ClipOval(
+      child: Image.asset(
+        "assets/profilepic.jpg",
+        height: 200,
+        fit: BoxFit.cover,
+      ),
+    );
+  }
+
+  /// A method to make the social icons seen under the profile picture.
+  /// Currently only has LinkedIn and Github, but more may be coming soon
+  Widget makeSocialIcons() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        ImageLink(
+          link: "https://github.com/tmthecoder",
+          assetUri: "assets/third_party/github_logo_${ThemeController.of(context).isDark ? "dark" : "light"}.png",
+          edgeInsets: const EdgeInsets.all(10),
+        ),
+        Padding(padding: const EdgeInsets.all(20),),
+        ImageLink(
+          link: "https://www.linkedin.com/in/tejas-mehta-88109818b",
+          assetUri: "assets/third_party/linkedin_logo.png",
+          edgeInsets: const EdgeInsets.fromLTRB(10.0, 10.0, 8.0, 10.0),
+        ),
+      ],
+    );
+  }
+
+  /// A method to create the viewing options for my resume at the bottom of the webpage
+  /// Creates a nicely formatted Text with two links on the same line, one for a view and
+  /// the other to download.
   Widget createResumeViewOpen() {
     return RichText(
       text: TextSpan(
@@ -133,16 +174,19 @@ class AboutState extends State<About> with WidgetsBindingObserver {
     );
   }
 
+  /// Test method to use stripe (will be used in the future sometime...
   void callJS() {
     js.context.callMethod('createAndRedirect', ["price_1HLJr5Ge8QXeWO1XzL92REy5"]);
   }
 
+  /// Method to get my age because I will definitely forget to update a static age
   int getAge() {
     DateTime now = DateTime.now();
     DateTime birthday = DateTime(2003, 12, 19);
     return (now.difference(birthday).inDays/365).floor();
   }
 
+  /// A method to glob the resume PDF and open it up in browser
   Future<void> viewResume() async {
     ByteData fileData = await rootBundle.load("assets/resume.pdf");
     final blob = html.Blob([fileData], 'application/pdf');
@@ -151,6 +195,7 @@ class AboutState extends State<About> with WidgetsBindingObserver {
     html.Url.revokeObjectUrl(url);
   }
 
+  /// A method to glob the resume PDF and send it as a download
   Future<void> downloadResume() async {
     ByteData fileData = await rootBundle.load("assets/resume.pdf");
     final blob = html.Blob([fileData], 'application/pdf');
@@ -164,18 +209,6 @@ class AboutState extends State<About> with WidgetsBindingObserver {
     anchor.click();
     html.document.body.children.remove(anchor);
     html.Url.revokeObjectUrl(url);
-  }
-
-
-
-  Widget makeProfilePic() {
-    return ClipOval(
-      child: Image.asset(
-        "assets/profilepic.jpg",
-        height: 200,
-        fit: BoxFit.cover,
-      ),
-    );
   }
 
 }

@@ -11,6 +11,8 @@ class RouteController extends InheritedWidget {
   final Function(String) updateRoute;
   final String currentRoute;
 
+  /// The method to decide whether to notify the top-level widget on whether
+  /// it needs to update the global route
   @override
   bool updateShouldNotify(RouteController oldWidget) {
     return this.currentRoute != oldWidget.currentRoute;

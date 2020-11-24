@@ -22,7 +22,9 @@ class ThemeControllerWidget extends StatefulWidget {
 class ThemeControllerWidgetState extends State<ThemeControllerWidget> {
   
   bool _isDark = true;
-  
+
+  /// A method to toggle the state if the theme and will update the website's
+  /// darkmode calls
   void toggleDark() async {
     setState(() {
       _isDark = !_isDark;
