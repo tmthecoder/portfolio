@@ -58,7 +58,7 @@ class ProjectColumn extends StatelessWidget {
         projectString = "Released!";
         break;
       case ProjectStatus.BETA:
-        color = Colors.yellow;
+        color = Colors.orange;
         projectString = "In Beta";
         break;
       case ProjectStatus.ALPHA:

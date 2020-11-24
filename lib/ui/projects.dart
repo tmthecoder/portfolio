@@ -67,7 +67,7 @@ class ProjectsState extends State<Projects> with WidgetsBindingObserver {
           SliverPadding(
             padding: EdgeInsets.fromLTRB(paddingSize, 10, paddingSize, 10),
             sliver: SliverToBoxAdapter(
-              child: Text("For Users", style: Theme.of(context).textTheme.headline4,),
+              child: Text("Users", style: Theme.of(context).textTheme.headline4,),
             ),
           ),
           SliverPadding(
@@ -84,7 +84,7 @@ class ProjectsState extends State<Projects> with WidgetsBindingObserver {
           SliverPadding(
             padding: EdgeInsets.fromLTRB(paddingSize, 10, paddingSize, 10),
             sliver: SliverToBoxAdapter(
-              child: Text("For Developers", style: Theme.of(context).textTheme.headline4,),
+              child: Text("Developers", style: Theme.of(context).textTheme.headline4,),
             ),
           ),
           SliverPadding(
