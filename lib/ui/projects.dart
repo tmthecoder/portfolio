@@ -167,11 +167,28 @@ class ProjectsState extends State<Projects> with WidgetsBindingObserver {
         ),
       ),
 
+      //dargon2_fluter's Listing
+      DeveloperProjectListItem(
+        title: "dargon2_flutter",
+        description: "A Flutter plugin to hash with the Argon2 Algorithm, with the same usage mechanisms as dargon2",
+        projectStatus: ProjectStatus.RELEASED,
+        linkRow: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            ImageLink(
+              link: "https://github.com/tmthecoder/dargon2_flutter",
+              assetUri: "assets/third_party/github_logo_${ThemeController.of(context).isDark ? "dark" : "light"}.png",
+              edgeInsets: const EdgeInsets.all(10),
+            ),
+          ],
+        ),
+      ),
+      
       //OdometryCore's Listing
       DeveloperProjectListItem(
         title: "Odometry Core",
         description: "A library that houses and abstracts the core algorithm for three-encoder robot motion tracking",
-        projectStatus: ProjectStatus.BETA,
+        projectStatus: ProjectStatus.RELEASED,
         linkRow: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [

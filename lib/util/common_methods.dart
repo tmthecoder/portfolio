@@ -21,7 +21,7 @@ class CommonMethods {
     return (screenWidth - rlPadding * 2) ~/ itemWidth;
   }
 
-  /// A method to launch a given url using the url_launcher pkugin
+  /// A method to launch a given url using the url_launcher plugin
   static Future<void> launchUrl(String url) async {
     if (await canLaunch(url)) {
       await launch(url);
