@@ -180,10 +180,15 @@ class ProjectsState extends State<Projects> with WidgetsBindingObserver {
               assetUri: "assets/third_party/github_logo_${ThemeController.of(context).isDark ? "dark" : "light"}.png",
               edgeInsets: const EdgeInsets.all(10),
             ),
+            ImageLink(
+              link: "https://pub.dev/packages/dargon2_flutter",
+              assetUri: "assets/third_party/dart_logo.png",
+              edgeInsets: const EdgeInsets.fromLTRB(10.0, 10.0, 8.0, 10.0),
+            ),
           ],
         ),
       ),
-      
+
       //OdometryCore's Listing
       DeveloperProjectListItem(
         title: "Odometry Core",
