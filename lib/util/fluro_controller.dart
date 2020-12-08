@@ -24,10 +24,10 @@ class FluroController {
 
   /// A method to setup the Fluro Router and add all of the necessary routes used in this webpage
   static void setupRouter() {
-    router.define("/", handler: _aboutHandler, transitionType: TransitionType.materialFullScreenDialog);
-    router.define(About.route, handler: _aboutHandler, transitionType: TransitionType.materialFullScreenDialog);
-    router.define(Projects.route, handler: _projectListHandler, transitionType: TransitionType.materialFullScreenDialog);
-    router.define(ProjectViewer.route, handler: _projectViewerHandler, transitionType: TransitionType.materialFullScreenDialog);
+    router.define("/", handler: _aboutHandler, transitionType: TransitionType.inFromBottom);
+    router.define(About.route, handler: _aboutHandler, transitionType: TransitionType.inFromBottom);
+    router.define(Projects.route, handler: _projectListHandler, transitionType: TransitionType.inFromBottom);
+    router.define(ProjectViewer.route, handler: _projectViewerHandler, transitionType: TransitionType.inFromBottom);
   }
 
 

@@ -11,8 +11,9 @@ class DeveloperProjectListItem extends StatelessWidget {
   final String description;
   final ProjectStatus projectStatus;
   final Row linkRow;
+  final String linkName;
 
-  const DeveloperProjectListItem({Key key, @required this.title, @required this.description, @required this.projectStatus, this.linkRow}) : super(key: key);
+  const DeveloperProjectListItem({Key key, @required this.title, @required this.description, @required this.projectStatus, this.linkRow, @required this.linkName}) : super(key: key);
   ///Main widget build method
   ///Builds the UI on this screen
   @override
@@ -26,7 +27,7 @@ class DeveloperProjectListItem extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
           child: InkWell(
               onTap: () {
-
+                Navigator.pushNamed(context, "/project/$linkName");
               },
               child: ProjectColumn(title: title, description: description, projectStatus: projectStatus, linkRow: linkRow,)
           ),

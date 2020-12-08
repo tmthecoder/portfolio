@@ -8,12 +8,13 @@ import 'package:portfolio/util/theme_controller.dart';
 import 'package:portfolio/widgets/project_column.dart';
 
 class UserProjectListItem extends StatelessWidget {
+  final String linkName;
   final ImageProvider image;
   final String title;
   final String description;
   final ProjectStatus projectStatus;
 
-  const UserProjectListItem({Key key, @required this.image, @required this.title, @required this.description, @required this.projectStatus}) : super(key: key);
+  const UserProjectListItem({Key key, @required this.image, @required this.title, @required this.description, @required this.projectStatus, @required this.linkName}) : super(key: key);
 
   ///Main widget build method
   ///Builds the UI on this screen
@@ -28,7 +29,7 @@ class UserProjectListItem extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
           child: InkWell(
             onTap: () {
-
+              Navigator.pushReplacementNamed(context, "/project/$linkName");
             },
             child: ProjectColumn(image: image, title: title, description: description, projectStatus: projectStatus,)
           ),

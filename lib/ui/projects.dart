@@ -113,6 +113,7 @@ class ProjectsState extends State<Projects> with WidgetsBindingObserver {
         title: "CrossClip",
         description: "A secure, versatile, and seamless cross-platform clipboard manager and file transfer agent",
         projectStatus: ProjectStatus.DEVELOPMENT,
+        linkName: "crossclip",
       ),
 
       //FTC Scouting and Scoring's listing
@@ -121,6 +122,7 @@ class ProjectsState extends State<Projects> with WidgetsBindingObserver {
         title: "FTC Scouring and Scoring",
         description: "An intuitive, real-time, cloud-based Scouting and Scoring application built for ease and synchronization",
         projectStatus: ProjectStatus.RELEASED,
+        linkName: "ftcscoutscore",
       ),
 
       //blinkOS's listing
@@ -129,6 +131,7 @@ class ProjectsState extends State<Projects> with WidgetsBindingObserver {
         title: "blinkOS - A hackSugar Project",
         description: "An Android-based operating system build to ensure the user's privacy, security, and anonymity.",
         projectStatus: ProjectStatus.ALPHA,
+        linkName: "blinkos",
       ),
 
       //Weasel's listing
@@ -137,6 +140,7 @@ class ProjectsState extends State<Projects> with WidgetsBindingObserver {
         title: "Weasel - A hackSugar Project",
         description: "An encrypted messaging client built to secure and improve upon the already widespread SMS protocol.",
         projectStatus: ProjectStatus.DEVELOPMENT,
+        linkName: "weasel",
       ),
     ];
   }
@@ -165,6 +169,7 @@ class ProjectsState extends State<Projects> with WidgetsBindingObserver {
             ),
           ],
         ),
+        linkName: "dargon2",
       ),
 
       //dargon2_fluter's Listing
@@ -187,6 +192,7 @@ class ProjectsState extends State<Projects> with WidgetsBindingObserver {
             ),
           ],
         ),
+        linkName: "dargon2_flutter",
       ),
 
       //OdometryCore's Listing
@@ -204,6 +210,7 @@ class ProjectsState extends State<Projects> with WidgetsBindingObserver {
             ),
           ],
         ),
+        linkName: "odometrycore",
       ),
     ];
   }
