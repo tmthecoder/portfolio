@@ -49,6 +49,12 @@ class ProjectsState extends State<Projects> with WidgetsBindingObserver {
     WidgetsBinding.instance.window.platformBrightness;
   }
 
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      RouteController.of(context).updateRoute("projects");
+    }
+  }
 
   ///Main widget build method
   ///Builds the UI on this screen

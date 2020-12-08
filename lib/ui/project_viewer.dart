@@ -40,6 +40,13 @@ class ProjectViewerState extends State<ProjectViewer>
     super.dispose();
   }
 
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      RouteController.of(context).updateRoute("/project/${widget.projectKey}");
+    }
+  }
+
   ///didChangePlatformBrightness method
   ///Only changes the listener's state to the theme allowing to change the theme while user is on the screen
   @override

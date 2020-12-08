@@ -57,6 +57,12 @@ class AboutState extends State<About> with WidgetsBindingObserver {
     WidgetsBinding.instance.window.platformBrightness;
   }
 
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      RouteController.of(context).updateRoute("about");
+    }
+  }
 
   ///Main widget build method
   ///Builds the UI on this screen
