@@ -26,9 +26,9 @@ class DeveloperProjectListItem extends StatelessWidget {
         child: ClipRRect(
           borderRadius: BorderRadius.circular(15),
           child: InkWell(
-              onTap: () {
-                Navigator.pushNamed(context, "/project/$linkName");
-              },
+              // onTap: () {
+              //   Navigator.pushNamed(context, "/project/$linkName");
+              // },
               child: ProjectColumn(title: title, description: description, projectStatus: projectStatus, linkRow: linkRow,)
           ),
         ),

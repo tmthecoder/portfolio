@@ -28,9 +28,9 @@ class UserProjectListItem extends StatelessWidget {
         child: ClipRRect(
           borderRadius: BorderRadius.circular(15),
           child: InkWell(
-            onTap: () {
-              Navigator.pushReplacementNamed(context, "/project/$linkName");
-            },
+            // onTap: () {
+            //   Navigator.pushReplacementNamed(context, "/project/$linkName");
+            // },
             child: ProjectColumn(image: image, title: title, description: description, projectStatus: projectStatus,)
           ),
         ),

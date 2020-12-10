@@ -35,13 +35,13 @@ class ProjectColumn extends StatelessWidget {
         Padding(padding: const EdgeInsets.all(10)),
         linkRow != null ? linkRow : Container(),
         linkRow != null ? Padding(padding: const EdgeInsets.all(10),) : Container(),
-        Align(
-            alignment: Alignment.centerRight,
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(0, 0, 15, 10),
-              child: Text("More Details...", textAlign: TextAlign.right, style: TextStyle(color: ThemeController.of(context).isDark ? Colors.grey[400] : Colors.grey[700], fontSize: 14),),
-            )
-        )
+        // Align(
+        //     alignment: Alignment.centerRight,
+        //     child: Padding(
+        //       padding: const EdgeInsets.fromLTRB(0, 0, 15, 10),
+        //       child: Text("More Details...", textAlign: TextAlign.right, style: TextStyle(color: ThemeController.of(context).isDark ? Colors.grey[400] : Colors.grey[700], fontSize: 14),),
+        //     )
+        // )
       ],
     );
   }
