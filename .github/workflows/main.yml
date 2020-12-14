@@ -30,4 +30,4 @@ jobs:
         git checkout -b web-source
         git add .
         git commit -m "Updated built website from code in master"
-        git push --force secure-origin gh-pages
+        git push --force secure-origin web-source
