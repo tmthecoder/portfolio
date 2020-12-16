@@ -9,6 +9,7 @@ import 'package:portfolio/util/project_status.dart';
 import 'package:portfolio/util/route_controller.dart';
 import 'package:portfolio/util/theme_controller.dart';
 import 'package:portfolio/widgets/developer_project_list_item.dart';
+import 'package:portfolio/widgets/icon_link.dart';
 import 'package:portfolio/widgets/image_link.dart';
 import 'package:portfolio/widgets/user_project_list_item.dart';
 
@@ -173,6 +174,11 @@ class ProjectsState extends State<Projects> with WidgetsBindingObserver {
               assetUri: "assets/third_party/dart_logo.png",
               edgeInsets: const EdgeInsets.fromLTRB(10.0, 10.0, 8.0, 10.0),
             ),
+            IconLink(
+              icon: Icons.code,
+              link: "https://docs.tmthecoder.dev/dargon2",
+              padding: const EdgeInsets.all(10),
+            )
           ],
         ),
         linkName: "dargon2",
@@ -196,6 +202,11 @@ class ProjectsState extends State<Projects> with WidgetsBindingObserver {
               assetUri: "assets/third_party/dart_logo.png",
               edgeInsets: const EdgeInsets.fromLTRB(10.0, 10.0, 8.0, 10.0),
             ),
+            IconLink(
+              icon: Icons.code,
+              link: "https://docs.tmthecoder.dev/dargon2_flutter",
+              padding: const EdgeInsets.all(10),
+            )
           ],
         ),
         linkName: "dargon2_flutter",
@@ -204,7 +215,7 @@ class ProjectsState extends State<Projects> with WidgetsBindingObserver {
       //OdometryCore's Listing
       DeveloperProjectListItem(
         title: "Odometry Core",
-        description: "A library that houses and abstracts the core algorithm for three-encoder robot motion tracking",
+        description: "A java library that houses and abstracts the core algorithm for three-encoder robot motion tracking",
         projectStatus: ProjectStatus.RELEASED,
         linkRow: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -214,6 +225,11 @@ class ProjectsState extends State<Projects> with WidgetsBindingObserver {
               assetUri: "assets/third_party/github_logo_${ThemeController.of(context).isDark ? "dark" : "light"}.png",
               edgeInsets: const EdgeInsets.all(10),
             ),
+            IconLink(
+              icon: Icons.code,
+              link: "https://docs.tmthecoder.dev/OdometryCore",
+              padding: const EdgeInsets.all(10),
+            )
           ],
         ),
         linkName: "odometrycore",
