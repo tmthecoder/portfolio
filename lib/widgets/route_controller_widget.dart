@@ -25,8 +25,10 @@ class RouteControllerWidgetState extends State<RouteControllerWidget>
 
   /// A method to update the current route for the website and updates the called route
   void updateRoute(String route) {
-    setState(() {
-      _route = route;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      setState(() {
+        _route = route;
+      });
     });
   }
 

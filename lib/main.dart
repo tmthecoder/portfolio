@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/util/custom_route_observer.dart';
 import 'package:portfolio/util/fluro_controller.dart';
 import 'package:portfolio/ui/about.dart';
 import 'package:portfolio/util/route_controller.dart';
@@ -44,6 +45,7 @@ class MyApp extends StatelessWidget {
         navigatorKey: _navigatorKey,
         title: 'Tejas Mehta',
         theme: ThemeController.of(context).isDark ? _darkTheme : _lightTheme,
+        navigatorObservers: [CustomRouteObserver(_navigatorKey)],
         builder: (BuildContext context, Widget child) {
           return Navigator(
             onGenerateRoute: (_) => MaterialPageRoute(
