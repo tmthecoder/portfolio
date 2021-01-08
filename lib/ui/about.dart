@@ -148,6 +148,11 @@ class AboutState extends State<About> with WidgetsBindingObserver {
   /// Creates a nicely formatted Text with two links on the same line, one for a view and
   /// the other to download.
   Widget createResumeViewOpen() {
+    String userPlatform = (getUserAgent() ?? "").toLowerCase();
+    bool showSingleButton = false;
+    if (userPlatform.contains("ipod") || userPlatform.contains("ipad") || userPlatform.contains("iphone") || userPlatform.contains("android")) {
+      showSingleButton = true;
+    }
     return RichText(
       text: TextSpan(
         children: [
@@ -161,11 +166,11 @@ class AboutState extends State<About> with WidgetsBindingObserver {
             recognizer: TapGestureRecognizer()
               ..onTap = viewResume,
           ),
-          TextSpan(
+          if (!showSingleButton) TextSpan(
             text: " / ",
             style: Theme.of(context).textTheme.bodyText2
           ),
-          TextSpan(
+          if (!showSingleButton) TextSpan(
               text: "Download",
               style: Theme.of(context).textTheme.bodyText2.merge(TextStyle(color: Colors.blue)),
               recognizer: TapGestureRecognizer()
@@ -183,6 +188,10 @@ class AboutState extends State<About> with WidgetsBindingObserver {
   /// Test method to use stripe (will be used in the future sometime...
   void callJS() {
     js.context.callMethod('createAndRedirect', ["price_1HLJr5Ge8QXeWO1XzL92REy5"]);
+  }
+
+  String getUserAgent() {
+    return "${js.context.callMethod('getUserAgent')}";
   }
 
   /// Method to get my age because I will definitely forget to update a static age
