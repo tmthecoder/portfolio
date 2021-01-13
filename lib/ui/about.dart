@@ -149,6 +149,7 @@ class AboutState extends State<About> with WidgetsBindingObserver {
   /// the other to download.
   Widget createResumeViewOpen() {
     String userPlatform = (getUserAgent() ?? "").toLowerCase();
+    print(userPlatform);
     bool showSingleButton = false;
     if (userPlatform.contains("ipod") || userPlatform.contains("ipad") || userPlatform.contains("iphone") || userPlatform.contains("android")) {
       showSingleButton = true;

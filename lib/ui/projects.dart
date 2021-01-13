@@ -69,43 +69,42 @@ class ProjectsState extends State<Projects> with WidgetsBindingObserver {
     double paddingSize = CommonMethods.getDynamicPaddingSize(width, width/5000/1.5);
     int axisCount = CommonMethods.getGridAxisCount(MediaQuery.of(context).size.width, paddingSize, 300);
     return Scrollbar(
-      child: CustomScrollView(
-        slivers: [
-          SliverPadding(
-            padding: EdgeInsets.fromLTRB(paddingSize, 10, paddingSize, 10),
-            sliver: SliverToBoxAdapter(
-              child: Text("Users", style: Theme.of(context).textTheme.headline4,),
-            ),
+      child: SingleChildScrollView(
+        primary: true,
+        child: Padding(
+          padding: EdgeInsets.fromLTRB(paddingSize, 10, paddingSize, 10),
+          child: Column(
+            children: [
+              Text("Users", style: Theme.of(context).textTheme.headline4,),
+              Padding(padding: EdgeInsets.all(10),),
+              StaggeredGridView.countBuilder(
+                shrinkWrap: true,
+                physics: ClampingScrollPhysics(),
+                key: UniqueKey(),
+                crossAxisCount: axisCount,
+                itemCount: userItems.length,
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 10,
+                itemBuilder: (context, index) =>  userItems[index],
+                staggeredTileBuilder: (index) => StaggeredTile.fit(1),
+              ),
+              Padding(padding: EdgeInsets.all(10),),
+              Text("Developers", style: Theme.of(context).textTheme.headline4,),
+              Padding(padding: EdgeInsets.all(10),),
+              StaggeredGridView.countBuilder(
+                shrinkWrap: true,
+                physics: const ClampingScrollPhysics(),
+                key: UniqueKey(),
+                crossAxisCount: axisCount,
+                itemCount: developerItems.length,
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 10,
+                itemBuilder: (context, index) =>  developerItems[index],
+                staggeredTileBuilder: (index) => StaggeredTile.fit(1),
+              ),
+            ],
           ),
-          SliverPadding(
-            padding: EdgeInsets.fromLTRB(paddingSize, 10, paddingSize, 10),
-            sliver: SliverStaggeredGrid.count(
-              key: ObjectKey(axisCount),
-              crossAxisCount: axisCount,
-              crossAxisSpacing: 10,
-              mainAxisSpacing: 10,
-              children: userItems,
-              staggeredTiles: List.filled(userItems.length, StaggeredTile.fit(1)),
-            ),
-          ),
-          SliverPadding(
-            padding: EdgeInsets.fromLTRB(paddingSize, 10, paddingSize, 10),
-            sliver: SliverToBoxAdapter(
-              child: Text("Developers", style: Theme.of(context).textTheme.headline4,),
-            ),
-          ),
-          SliverPadding(
-            padding: EdgeInsets.fromLTRB(paddingSize, 10, paddingSize, 10),
-            sliver: SliverStaggeredGrid.count(
-              key: ObjectKey(axisCount),
-              crossAxisCount: axisCount,
-              crossAxisSpacing: 10,
-              mainAxisSpacing: 10,
-              children: developerItems,
-              staggeredTiles: List.filled(developerItems.length, StaggeredTile.fit(1)),
-            ),
-          )
-        ],
+        ),
       ),
     );
   }
