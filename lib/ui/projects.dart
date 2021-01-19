@@ -211,6 +211,29 @@ class ProjectsState extends State<Projects> with WidgetsBindingObserver {
         linkName: "dargon2_flutter",
       ),
 
+      //Argon2Swift's Listing
+      DeveloperProjectListItem(
+        title: "Argon2Swift",
+        description: "A Swift plugin to hash with the Argon2 Algorithm built utilizing the reference Argon2 library",
+        projectStatus: ProjectStatus.RELEASED,
+        linkRow: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            ImageLink(
+              link: "https://github.com/tmthecoder/Argon2Swift",
+              assetUri: "assets/third_party/github_logo_${ThemeController.of(context).isDark ? "dark" : "light"}.png",
+              edgeInsets: const EdgeInsets.all(10),
+            ),
+            IconLink(
+              icon: Icons.code,
+              link: "https://docs.tmthecoder.dev/Argon2Swift",
+              padding: const EdgeInsets.all(10),
+            )
+          ],
+        ),
+        linkName: "argon2swift",
+      ),
+
       //OdometryCore's Listing
       DeveloperProjectListItem(
         title: "Odometry Core",
