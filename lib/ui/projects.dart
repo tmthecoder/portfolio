@@ -224,6 +224,11 @@ class ProjectsState extends State<Projects> with WidgetsBindingObserver {
               assetUri: "assets/third_party/github_logo_${ThemeController.of(context).isDark ? "dark" : "light"}.png",
               edgeInsets: const EdgeInsets.all(10),
             ),
+            ImageLink(
+              link: "https://cocoapods.org/pods/Argon2Swift",
+              assetUri: "assets/third_party/cocoapods_logo.png",
+              edgeInsets: const EdgeInsets.all(10),
+            ),
             IconLink(
               icon: Icons.code,
               link: "https://docs.tmthecoder.dev/Argon2Swift",
