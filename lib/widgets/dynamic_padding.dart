@@ -7,7 +7,7 @@ import 'package:portfolio/util/common_methods.dart';
 
 class DynamicPadding extends StatelessWidget {
   final Widget child;
-  const DynamicPadding({Key key, @required this.child}) : super(key: key);
+  const DynamicPadding({Key? key, required this.child}) : super(key: key);
   ///Main widget build method
   ///Builds the UI on this screen
   @override

@@ -34,10 +34,10 @@ class AboutState extends State<About> with WidgetsBindingObserver {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_){
-      RouteController.of(context).updateRoute("about");
+    WidgetsBinding.instance?.addPostFrameCallback((_){
+      RouteController.of(context)?.updateRoute("about");
     });
-    WidgetsBinding.instance.addObserver(this);
+    WidgetsBinding.instance?.addObserver(this);
 
   }
 
@@ -46,7 +46,7 @@ class AboutState extends State<About> with WidgetsBindingObserver {
   ///Currently only removes the observer set in initState for the light/dark theme changes
   @override
   void dispose() {
-    WidgetsBinding.instance.removeObserver(this);
+    WidgetsBinding.instance?.removeObserver(this);
     super.dispose();
   }
 
@@ -54,13 +54,13 @@ class AboutState extends State<About> with WidgetsBindingObserver {
   ///Only changes the listener's state to the theme allowing to change the theme while user is on the screen
   @override
   void didChangePlatformBrightness() {
-    WidgetsBinding.instance.window.platformBrightness;
+    WidgetsBinding.instance?.window.platformBrightness;
   }
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.resumed) {
-      RouteController.of(context).updateRoute("about");
+      RouteController.of(context)?.updateRoute("about");
     }
   }
 
@@ -148,7 +148,7 @@ class AboutState extends State<About> with WidgetsBindingObserver {
   /// Creates a nicely formatted Text with two links on the same line, one for a view and
   /// the other to download.
   Widget createResumeViewOpen() {
-    String userPlatform = (getUserAgent() ?? "").toLowerCase();
+    String userPlatform = getUserAgent().toLowerCase();
     print(userPlatform);
     bool showSingleButton = false;
     if (userPlatform.contains("ipod") || userPlatform.contains("ipad") || userPlatform.contains("iphone") || userPlatform.contains("android")) {
@@ -163,7 +163,7 @@ class AboutState extends State<About> with WidgetsBindingObserver {
           ),
           TextSpan(
             text: "View",
-            style: Theme.of(context).textTheme.bodyText2.merge(TextStyle(color: Colors.blue)),
+            style: Theme.of(context).textTheme.bodyText2?.merge(TextStyle(color: Colors.blue)),
             recognizer: TapGestureRecognizer()
               ..onTap = viewResume,
           ),
@@ -173,7 +173,7 @@ class AboutState extends State<About> with WidgetsBindingObserver {
           ),
           if (!showSingleButton) TextSpan(
               text: "Download",
-              style: Theme.of(context).textTheme.bodyText2.merge(TextStyle(color: Colors.blue)),
+              style: Theme.of(context).textTheme.bodyText2?.merge(TextStyle(color: Colors.blue)),
               recognizer: TapGestureRecognizer()
                 ..onTap = downloadResume,
           ),
@@ -257,9 +257,9 @@ class AboutState extends State<About> with WidgetsBindingObserver {
       ..href = url
       ..style.display = 'none'
       ..download = 'Mehta_Tejas-Resume.pdf';
-    html.document.body.children.add(anchor);
+    html.document.body?.children.add(anchor);
     anchor.click();
-    html.document.body.children.remove(anchor);
+    html.document.body?.children.remove(anchor);
     html.Url.revokeObjectUrl(url);
   }
 

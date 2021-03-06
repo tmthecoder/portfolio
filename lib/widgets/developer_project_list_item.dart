@@ -10,10 +10,10 @@ class DeveloperProjectListItem extends StatelessWidget {
   final String title;
   final String description;
   final ProjectStatus projectStatus;
-  final Row linkRow;
+  final Row? linkRow;
   final String linkName;
 
-  const DeveloperProjectListItem({Key key, @required this.title, @required this.description, @required this.projectStatus, this.linkRow, @required this.linkName}) : super(key: key);
+  const DeveloperProjectListItem({Key? key, required this.title, required this.description, required this.projectStatus, this.linkRow, required this.linkName}) : super(key: key);
   ///Main widget build method
   ///Builds the UI on this screen
   @override

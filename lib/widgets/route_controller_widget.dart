@@ -9,7 +9,7 @@ class RouteControllerWidget extends StatefulWidget {
   final String initialRoute;
   final Widget child;
 
-  const RouteControllerWidget({Key key, this.initialRoute, this.child}) : super(key: key);
+  const RouteControllerWidget({Key? key, required this.initialRoute, required this.child}) : super(key: key);
   ///CreateState method
   ///Sets the state of the app (rebuilt each time a UI change is needed)
   @override
@@ -25,7 +25,7 @@ class RouteControllerWidgetState extends State<RouteControllerWidget>
 
   /// A method to update the current route for the website and updates the called route
   void updateRoute(String route) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+    WidgetsBinding.instance?.addPostFrameCallback((_) {
       setState(() {
         _route = route;
       });

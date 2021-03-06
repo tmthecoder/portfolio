@@ -7,13 +7,13 @@ import 'package:portfolio/util/project_status.dart';
 import 'package:portfolio/util/theme_controller.dart';
 
 class ProjectColumn extends StatelessWidget {
-  final ImageProvider image;
+  final ImageProvider? image;
   final String title;
   final String description;
   final ProjectStatus projectStatus;
-  final Row linkRow;
+  final Row? linkRow;
 
-  const ProjectColumn({Key key, this.image, @required this.title, @required this.description, @required this.projectStatus, this.linkRow}) : super(key: key);
+  const ProjectColumn({Key? key, this.image, required this.title, required this.description, required this.projectStatus, this.linkRow}) : super(key: key);
   ///Main widget build method
   ///Builds the UI on this screen
   @override
@@ -24,16 +24,16 @@ class ProjectColumn extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Padding(padding: EdgeInsets.all(10),),
-        image != null ? Image(image: image,) : Container(),
+        image != null ? Image(image: image!,) : Container(),
         image != null ? Padding(padding: EdgeInsets.all(15),) : Container(),
-        Text(title, style: Theme.of(context).textTheme.headline6.merge(TextStyle(fontWeight: FontWeight.bold)), textAlign: TextAlign.center,),
+        Text(title, style: Theme.of(context).textTheme.headline6?.merge(TextStyle(fontWeight: FontWeight.bold)), textAlign: TextAlign.center,),
         Padding(
           padding: const EdgeInsets.all(15.0),
           child: Text(description, style: Theme.of(context).textTheme.bodyText2,),
         ),
         buildProjectStatus(context),
         Padding(padding: const EdgeInsets.all(10)),
-        linkRow != null ? linkRow : Container(),
+        linkRow != null ? linkRow! : Container(),
         linkRow != null ? Padding(padding: const EdgeInsets.all(10),) : Container(),
         // Align(
         //     alignment: Alignment.centerRight,
@@ -79,7 +79,7 @@ class ProjectColumn extends StatelessWidget {
             ),
             TextSpan(
                 text: projectString,
-                style: Theme.of(context).textTheme.subtitle2.merge(TextStyle(color: color))
+                style: Theme.of(context).textTheme.subtitle2?.merge(TextStyle(color: color))
             )
           ]
       ),

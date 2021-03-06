@@ -11,7 +11,7 @@ class IconLink extends StatelessWidget {
   final String link;
   final EdgeInsets padding;
 
-  const IconLink({Key key, @required this.icon, @required this.link, @required this.padding}) : super(key: key);
+  const IconLink({Key? key, required this.icon, required this.link, required this.padding}) : super(key: key);
   ///Main widget build method
   ///Builds the UI on this screen
   @override

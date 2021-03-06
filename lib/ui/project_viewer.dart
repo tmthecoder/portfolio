@@ -9,7 +9,7 @@ class ProjectViewer extends StatefulWidget {
   static final String route = "project/:key";
   final String projectKey;
 
-  const ProjectViewer({Key key, this.projectKey}) : super(key: key);
+  const ProjectViewer({Key? key, required this.projectKey}) : super(key: key);
   ///CreateState method
   ///Sets the state of the app (rebuilt each time a UI change is needed)
   @override
@@ -26,24 +26,24 @@ class ProjectViewerState extends State<ProjectViewer>
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_){
-      RouteController.of(context).updateRoute("project/${widget.projectKey}");
+    WidgetsBinding.instance?.addPostFrameCallback((_){
+      RouteController.of(context)?.updateRoute("project/${widget.projectKey}");
     });
-    WidgetsBinding.instance.addObserver(this);
+    WidgetsBinding.instance?.addObserver(this);
   }
 
   ///Dispose method
   ///Currently only removes the observer set in initState for the light/dark theme changes
   @override
   void dispose() {
-    WidgetsBinding.instance.removeObserver(this);
+    WidgetsBinding.instance?.removeObserver(this);
     super.dispose();
   }
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.resumed) {
-      RouteController.of(context).updateRoute("/project/${widget.projectKey}");
+      RouteController.of(context)?.updateRoute("/project/${widget.projectKey}");
     }
   }
 
@@ -51,7 +51,7 @@ class ProjectViewerState extends State<ProjectViewer>
   ///Only changes the listener's state to the theme allowing to change the theme while user is on the screen
   @override
   void didChangePlatformBrightness() {
-    WidgetsBinding.instance.window.platformBrightness;
+    WidgetsBinding.instance?.window.platformBrightness;
   }
 
 

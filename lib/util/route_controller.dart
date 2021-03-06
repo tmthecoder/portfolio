@@ -6,7 +6,7 @@ import 'package:flutter/cupertino.dart';
 
 class RouteController extends InheritedWidget {
 
-  RouteController({Key key, @required this.updateRoute, @required this.currentRoute, @required Widget child}) : super(key: key, child: child);
+  RouteController({Key? key, required this.updateRoute, required this.currentRoute, required Widget child}) : super(key: key, child: child);
 
   final Function(String) updateRoute;
   final String currentRoute;
@@ -18,7 +18,7 @@ class RouteController extends InheritedWidget {
     return this.currentRoute != oldWidget.currentRoute;
   }
 
-  static RouteController of(BuildContext context) {
+  static RouteController? of(BuildContext context) {
     return context.dependOnInheritedWidgetOfExactType<RouteController>();
   }
 

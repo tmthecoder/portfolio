@@ -10,7 +10,7 @@ class ThemeControllerWidget extends StatefulWidget {
   final bool initiallyIsDark;
   final Widget child;
 
-  const ThemeControllerWidget({Key key, this.initiallyIsDark, this.child}) : super(key: key);
+  const ThemeControllerWidget({Key? key, required this.initiallyIsDark, required this.child}) : super(key: key);
   ///CreateState method
   ///Sets the state of the app (rebuilt each time a UI change is needed)
   @override

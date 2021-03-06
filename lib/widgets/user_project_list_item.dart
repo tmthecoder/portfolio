@@ -14,7 +14,7 @@ class UserProjectListItem extends StatelessWidget {
   final String description;
   final ProjectStatus projectStatus;
 
-  const UserProjectListItem({Key key, @required this.image, @required this.title, @required this.description, @required this.projectStatus, @required this.linkName}) : super(key: key);
+  const UserProjectListItem({Key? key, required this.image, required this.title, required this.description, required this.projectStatus, required this.linkName}) : super(key: key);
 
   ///Main widget build method
   ///Builds the UI on this screen

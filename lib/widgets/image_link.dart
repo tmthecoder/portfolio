@@ -10,7 +10,7 @@ class ImageLink extends StatelessWidget {
   final String assetUri;
   final EdgeInsets edgeInsets;
 
-  const ImageLink({Key key, @required this.link, @required this.assetUri, @required this.edgeInsets}) : super(key: key);
+  const ImageLink({Key? key, required this.link, required this.assetUri, required this.edgeInsets}) : super(key: key);
   ///Main widget build method
   ///Builds the UI on this screen
   @override

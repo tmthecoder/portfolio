@@ -12,13 +12,13 @@ class FluroController {
   //Setup fluro's handlers and routes
   static FluroRouter router = FluroRouter();
   static Handler _aboutHandler = Handler(
-      handlerFunc: (BuildContext context, Map<String, dynamic> params) =>
+      handlerFunc: (BuildContext? context, Map<String, dynamic> params) =>
           About());
   static Handler _projectListHandler = Handler(
-      handlerFunc: (BuildContext context, Map<String, dynamic> params) =>
+      handlerFunc: (BuildContext? context, Map<String, dynamic> params) =>
           Projects());
   static Handler _projectViewerHandler = Handler(
-    handlerFunc: (BuildContext context, Map<String, dynamic> params) =>
+    handlerFunc: (BuildContext? context, Map<String, dynamic> params) =>
         ProjectViewer(projectKey: params["key"][0],)
   );
 

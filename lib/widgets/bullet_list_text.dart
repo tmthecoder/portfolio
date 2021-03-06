@@ -9,7 +9,7 @@ import 'package:flutter/rendering.dart';
 class BulletListText extends StatelessWidget {
   final String text;
 
-  const BulletListText(this.text, {Key key}) : super(key: key);
+  const BulletListText(this.text, {Key? key}) : super(key: key);
   ///Main widget build method
   ///Builds the UI on this screen
   @override

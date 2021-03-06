@@ -14,7 +14,7 @@ void main() {
     future: SharedPreferences.getInstance(),
     builder: (BuildContext context, AsyncSnapshot<SharedPreferences> snapshot) {
       if (!snapshot.hasData) return Container();
-      return ThemeControllerWidget(initiallyIsDark: snapshot.data.getBool("initialDark") ?? false, child: MyApp(),);
+      return ThemeControllerWidget(initiallyIsDark: snapshot.data?.getBool("initialDark") ?? false, child: MyApp(),);
     }
   ));
 }
@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
         title: 'Tejas Mehta',
         theme: ThemeController.of(context).isDark ? _darkTheme : _lightTheme,
         navigatorObservers: [CustomRouteObserver(_navigatorKey)],
-        builder: (BuildContext context, Widget child) {
+        builder: (BuildContext context, Widget? child) {
           return Navigator(
             onGenerateRoute: (_) => MaterialPageRoute(
               builder: (_) => Scaffold(
@@ -98,17 +98,17 @@ class MyApp extends StatelessWidget {
   }
 
   Text createTextTab(String subject, BuildContext context) {
-    bool isCurrent = subject.toLowerCase() == RouteController.of(context).currentRoute;
-    if (subject.toLowerCase().contains("project") && RouteController.of(context).currentRoute.contains("project")) isCurrent = true;
+    bool isCurrent = subject.toLowerCase() == RouteController.of(context)?.currentRoute;
+    if (subject.toLowerCase().contains("project") && RouteController.of(context)!.currentRoute.contains("project")) isCurrent = true;
     return Text(subject, style: isCurrent ? TextStyle(decoration: TextDecoration.underline) : null,);
   }
 
   void moveAndUpdateRoute(String route, BuildContext context, bool drawer) {
-    if (RouteController.of(context).currentRoute != route) {
-      _navigatorKey.currentState.pushNamed("/$route");
-      if (drawer) _scaffoldKey.currentState.openEndDrawer();
+    if (RouteController.of(context)?.currentRoute != route) {
+      _navigatorKey.currentState?.pushNamed("/$route");
+      if (drawer) _scaffoldKey.currentState?.openEndDrawer();
     } else if (drawer) {
-      _scaffoldKey.currentState.openEndDrawer();
+      _scaffoldKey.currentState?.openEndDrawer();
     }
   }
 }
