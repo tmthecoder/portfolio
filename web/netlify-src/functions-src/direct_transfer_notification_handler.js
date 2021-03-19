@@ -1,37 +1,54 @@
 var {google} = require('googleapis');
-var https = require('https');
+var axios = require('axios');
 
-exports.handler = function(event, context) {
-    getAccessToken().then((token) => {
-        const options = {
-            hostname: 'fcm.googleapis.com',
-            path: '/v1/projects/' + process.env.CROSSCLIP_FIREBASE_ID + '/messages:send',
-            method: 'POST',
+exports.handler = async function(event, context) {
+    const token = await getAccessToken();
+    // const options = {
+    //     hostname: 'fcm.googleapis.com',
+    //     port: 443,
+    //     path: '/v1/projects/' + process.env.CROSSCLIP_FIREBASE_ID + '/messages:send',
+    //     method: 'POST',
+    //     headers: {
+    //         'Authorization': 'Bearer ' + token
+    //     },
+    //     body: {
+    //         "message" : {
+    //             "name": "direct-transfer",
+    //             "topic": "allDevices",
+    //             "notification": {
+    //                 "title": "Direct Transfer Request",
+    //                 "body": "Test Request"
+    //             }
+    //         },
+    //     }
+    // }
+    console.log("sending")
+    console.log(token)
+    try {
+        const response = await axios.post('https://fcm.googleapis.com/v1/projects/crossclip-4c8bb/messages:send', {
+            "message": {
+                "name": "direct-transfer",
+                "topic": "allDevices",
+                "notification": {
+                    "title": "Direct Transfer Request",
+                    "body": "Test Request"
+                }
+            },
+        }, {
             headers: {
                 'Authorization': 'Bearer ' + token
-            },
-            body: {
-                "message" : {
-                    "name": "direct-transfer",
-                    "topic": "allDevices",
-                    "notification": {
-                        "title": "Direct Transfer Request",
-                        "body": "Test Request"
-                    }
-                },
             }
-        }
-        console.log("sending")
-        console.log(token)
-        var request = https.request(options, function (res) {
-            console.log("statusCode: ", res.statusCode);
-            console.log("headers: ", res.headers);
-        });
-        request.on('error', function(e) {
-            console.error('error');
-            console.error(e);
-        });
-    });
+        })
+        console.log(response)
+    } catch (error) {
+        console.log(error)
+    }
+
+    // request.on('error', function(e) {
+    //     console.error('error');
+    //     console.error(e);
+    // });
+
 }
 
 function getAccessToken() {
