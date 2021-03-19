@@ -1,8 +1,8 @@
 {
   "version": "0.0.1",
   "scripts": {
-    "lambda-serve": "netlify-lambda serve functions-src",
-    "lambda-build": "netlify-lambda build functions-src",
+    "lambda-serve": "netlify-lambda serve functions-src --config ./webpack.functions.js",
+    "lambda-build": "netlify-lambda build functions-src --config ./webpack.functions.js",
     "build": "npm run lambda-build",
     "dev": "npm run lambda-serve",
     "test": "echo 'No tests are currently configured.'"
@@ -17,7 +17,8 @@
     "jsonwebtoken": "^8.5.1",
     "firebase-admin": "^9.5.0",
     "firebase": "^8.3.1",
-    "encoding": "^0.1.13"
+    "encoding": "^0.1.13",
+    "webpack-node-externals": "^2.5.2"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
