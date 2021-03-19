@@ -18,9 +18,9 @@ exports.handler = async function(event, context) {
             }
         }
     }
-    const reqeuest = https.request(options, function(resp, error) {
-        console.log(error)
-        console.log(resp)
+    console.log("sending")
+    https.request(options, function (result) {
+        print(result)
     })
 }
 
@@ -38,6 +38,7 @@ function getAccessToken() {
         );
         jwtClient.authorize(function(err, tokens) {
             if (err) {
+                console.log(err)
                 reject(err);
                 return;
             }
