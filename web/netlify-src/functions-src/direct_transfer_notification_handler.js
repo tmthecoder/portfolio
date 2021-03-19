@@ -11,13 +11,15 @@ exports.handler = async function(event, context) {
             'Authorization': 'Bearer ' + token
         },
         body: {
-            notification: {
-                title: "Direct Transfer Request",
-                body: "Test Request"
+            "topic": "allDevices",
+            "notification": {
+                "title": "Direct Transfer Request",
+                "body": "Test Request"
             }
         }
     }
-    const reqeuest = https.request(options, function(resp) {
+    const reqeuest = https.request(options, function(resp, error) {
+        console.log(error)
         console.log(resp)
     })
 }
