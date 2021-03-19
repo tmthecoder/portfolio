@@ -30,7 +30,7 @@ function getAccessToken() {
         const jwtClient = new google.auth.JWT(
             process.env.CROSSCLIP_FIREBASE_CLIENT_EMAIL,
             null,
-            process.env.CROSSCLIP_PRIVATE_KEY,
+            process.env.CROSSCLIP_PRIVATE_KEY.replace(/\\n/g, '\n'),
             SCOPES,
             null
         );
