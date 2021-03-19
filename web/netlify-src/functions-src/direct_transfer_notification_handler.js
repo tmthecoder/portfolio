@@ -8,7 +8,7 @@ exports.handler = async function(event, context) {
         path: '/v1/projects/' + process.env.CROSSCLIP_FIREBASE_ID + '/messages:send',
         method: 'POST',
         headers: {
-            'Authorization': token
+            'Authorization': 'Bearer ' + token
         },
         body: {
             notification: {
