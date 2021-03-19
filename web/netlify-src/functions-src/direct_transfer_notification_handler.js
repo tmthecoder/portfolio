@@ -23,9 +23,16 @@ exports.handler = async function(event, context) {
     }
     console.log("sending")
     console.log(token)
-    https.request(options, function (result) {
-        console.log(result)
-    })
+    var request = https.request(options, function (res) {
+        console.log("statusCode: ", res.statusCode);
+        console.log("headers: ", res.headers);
+    });
+
+    request.on('error', function(e) {
+        console.error('error');
+        console.error(e);
+    });
+
 }
 
 function getAccessToken() {
