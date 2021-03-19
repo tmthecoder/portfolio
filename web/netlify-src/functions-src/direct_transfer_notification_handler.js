@@ -1,4 +1,4 @@
-var google = require('googleapis');
+var {google} = require('googleapis');
 var https = require('https');
 
 exports.handler = async function(event, context) {
