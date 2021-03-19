@@ -1,37 +1,36 @@
 var {google} = require('googleapis');
 var axios = require('axios');
 
+const errorCode = 502;
+const headers = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Headers": "Content-Type"
+};
+
 exports.handler = async function(event, context) {
+    // Get the access token
     const token = await getAccessToken();
-    // const options = {
-    //     hostname: 'fcm.googleapis.com',
-    //     port: 443,
-    //     path: '/v1/projects/' + process.env.CROSSCLIP_FIREBASE_ID + '/messages:send',
-    //     method: 'POST',
-    //     headers: {
-    //         'Authorization': 'Bearer ' + token
-    //     },
-    //     body: {
-    //         "message" : {
-    //             "name": "direct-transfer",
-    //             "topic": "allDevices",
-    //             "notification": {
-    //                 "title": "Direct Transfer Request",
-    //                 "body": "Test Request"
-    //             }
-    //         },
-    //     }
-    // }
-    console.log("sending")
-    console.log(token)
+    if (event.httpMethod !== "POST") {
+        return {
+            statusCode,
+            headers,
+            body: "This was not a POST request!"
+        };
+    }
+    const data = JSON.parse(event.body);
     try {
-        const response = await axios.post('https://fcm.googleapis.com/v1/projects/crossclip-4c8bb/messages:send', {
+        // Post the notification to the correct user id
+        await axios.post('https://fcm.googleapis.com/v1/projects/crossclip-4c8bb/messages:send', {
             "message": {
                 "name": "direct-transfer",
                 "topic": "allDevices",
                 "notification": {
-                    "title": "Direct Transfer Request",
-                    "body": "Test Request"
+                    "title": "CrossClip Direct",
+                    "body": "Direct Transfer Request From " + data.sender_name,
+                },
+                "data": {
+                    "type": "direct-transfer",
+                    "sender-id": data.sender_id,
                 }
             },
         }, {
@@ -39,7 +38,11 @@ exports.handler = async function(event, context) {
                 'Authorization': 'Bearer ' + token
             }
         })
-        console.log(response)
+        return {
+            statusCode: 200,
+            headers,
+            body: "Success"
+        }
     } catch (error) {
         console.log(error)
     }
