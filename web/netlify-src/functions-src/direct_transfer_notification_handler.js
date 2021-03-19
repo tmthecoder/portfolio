@@ -19,6 +19,7 @@ exports.handler = async function(event, context) {
         }
     }
     console.log("sending")
+    console.log(token)
     https.request(options, function (result) {
         print(result)
     })
