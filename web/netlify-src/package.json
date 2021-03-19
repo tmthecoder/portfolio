@@ -18,7 +18,7 @@
     "firebase-admin": "^9.5.0",
     "firebase": "^8.3.1",
     "encoding": "^0.1.13",
-    "webpack-node-externals": "^2.5.2"
+    "generate-json-webpack-plugin": "^2.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
