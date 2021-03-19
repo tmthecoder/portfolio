@@ -11,11 +11,14 @@ exports.handler = async function(event, context) {
             'Authorization': 'Bearer ' + token
         },
         body: {
-            "topic": "allDevices",
-            "notification": {
-                "title": "Direct Transfer Request",
-                "body": "Test Request"
-            }
+            "message" : {
+                "name": "direct-transfer",
+                "topic": "allDevices",
+                "notification": {
+                    "title": "Direct Transfer Request",
+                    "body": "Test Request"
+                }
+            },
         }
     }
     console.log("sending")
