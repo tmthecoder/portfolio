@@ -32,6 +32,7 @@ exports.handler = async function(event, context) {
                 "data": {
                     "type": "direct-transfer",
                     "sender-id": data.sender_id,
+                    "sender-name": data.sender_name,
                 }
             },
         }, {
