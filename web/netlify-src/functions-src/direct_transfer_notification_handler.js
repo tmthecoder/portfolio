@@ -27,12 +27,13 @@ exports.handler = async function(event, context) {
                 "token": recipientId,
                 "notification": {
                     "title": "CrossClip Direct",
-                    "body": "Request From " + data.sender_name + ". Click to Accept!",
+                    "body": "Request From " + data.sender_name + ". Click to Open!",
                 },
                 "data": {
                     "type": "direct-transfer",
                     "sender-id": data.sender_id,
                     "sender-name": data.sender_name,
+                    "file-name": data.file_name,
                 }
             },
         }, {
