@@ -12,7 +12,7 @@ exports.handler = async function(event, context) {
     const token = await getAccessToken();
     if (event.httpMethod !== "POST") {
         return {
-            statusCode,
+            errorCode,
             headers,
             body: "This was not a POST request!"
         };
