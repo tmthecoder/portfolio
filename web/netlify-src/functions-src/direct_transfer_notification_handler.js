@@ -18,15 +18,16 @@ exports.handler = async function(event, context) {
         };
     }
     const data = JSON.parse(event.body);
+    const recepientId = data.recepient_id;
     try {
         // Post the notification to the correct user id
         await axios.post('https://fcm.googleapis.com/v1/projects/crossclip-4c8bb/messages:send', {
             "message": {
                 "name": "direct-transfer",
-                "topic": "allDevices",
+                "token": recepientId,
                 "notification": {
                     "title": "CrossClip Direct",
-                    "body": "Direct Transfer Request From " + data.sender_name,
+                    "body": "Request From " + data.sender_name + ". Click to Accept!",
                 },
                 "data": {
                     "type": "direct-transfer",
@@ -56,7 +57,7 @@ exports.handler = async function(event, context) {
 
 function getAccessToken() {
     return new Promise(function(resolve, reject) {
-        var SCOPES = [
+        const SCOPES = [
             'https://www.googleapis.com/auth/firebase.messaging'
         ];
         const jwtClient = new google.auth.JWT(
