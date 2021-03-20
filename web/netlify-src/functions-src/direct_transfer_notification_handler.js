@@ -18,13 +18,13 @@ exports.handler = async function(event, context) {
         };
     }
     const data = JSON.parse(event.body);
-    const recepientId = data.recepient_id;
+    const recipientId = data.recipient_id;
     try {
         // Post the notification to the correct user id
         await axios.post('https://fcm.googleapis.com/v1/projects/crossclip-4c8bb/messages:send', {
             "message": {
                 "name": "direct-transfer",
-                "token": recepientId,
+                "token": recipientId,
                 "notification": {
                     "title": "CrossClip Direct",
                     "body": "Request From " + data.sender_name + ". Click to Accept!",
