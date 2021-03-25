@@ -34,6 +34,7 @@ exports.handler = async function(event, context) {
                     "sender-id": data.sender_id,
                     "sender-name": data.sender_name,
                     "file-name": data.file_name,
+                    "file-len": data.file_len
                 }
             },
         }, {
