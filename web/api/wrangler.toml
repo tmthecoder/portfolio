@@ -1,6 +1,6 @@
 name = "api"
 type = "webpack"
-account_id = ""
+account_id = "60b433d5960c03dd58ecf6ae90329ae7"
 workers_dev = true
 route = ""
 zone_id = ""
