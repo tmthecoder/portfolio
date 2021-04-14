@@ -22,5 +22,5 @@ jobs:
         git config user.name  "CI"
         git config user.email "cloudflare-worker-ci@github.com"
         git add .
-        git commit -m "Updated workers source from code in @tmthecoder/portfolio"
+        git commit -m "Updated workers source from code in @tmthecoder/portfolio" --allow-empty
         git push --force origin main
