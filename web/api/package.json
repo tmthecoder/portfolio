@@ -29,6 +29,9 @@
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
-    "itty-router": "^2.3.6"
+    "@sagi.io/workers-jwt": "^0.0.20",
+    "axios": "^0.21.1",
+    "itty-router": "^2.3.6",
+    "node-jose": "^2.0.0"
   }
 }

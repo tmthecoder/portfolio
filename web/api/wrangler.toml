@@ -5,3 +5,7 @@ workers_dev = true
 route = ""
 zone_id = ""
 webpack_config = "webpack.config.js"
+vars = { CROSSCLIP_ANDROID_BUNDLE_ID = "com.tejasmehta.cross_clip" }
+kv_namespaces = [
+    { binding = "CROSS_CLIP", id = "23ef269574774581915a8d6ec546acab", preview_id = "c3345de45d9a4b84bf37dd63a6eda38d" }
+]
