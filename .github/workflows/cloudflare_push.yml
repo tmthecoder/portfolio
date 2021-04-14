@@ -27,3 +27,4 @@ jobs:
         git add .
         git commit -m "Updated built website from code in master"
         git push --force secure-origin cloudflare-workers-source
+        curl   -X POST   -H "Accept: application/vnd.github.v3+json" -H "Authorization: token ${{ secrets.DISPATCH_TOKEN }}"  https://api.github.com/repos/tmthecoder/portfolio/actions/workflows/worker_publish/dispatches
