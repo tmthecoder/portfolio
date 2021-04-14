@@ -16,12 +16,11 @@ jobs:
     - uses: actions/checkout@v1
     - name: Deploy
       run: |
-        cd web/api/
-        git init
+        git clone https://${{ secrets.ACCESS_TOKEN }}@github.com/tmthecoder/portfolio-workers-source.git workers-src
+        mv api/* workers-src/
+        cd workers-src
         git config user.name  "CI"
         git config user.email "cloudflare-worker-ci@github.com"
-        git remote add secure-origin https://${{ secrets.ACCESS_TOKEN }}@github.com/tmthecoder/portfolio-workers-source.git
-        git branch -M main
         git add .
         git commit -m "Updated workers source from code in @tmthecoder/portfolio"
-        git push --force secure-origin main
+        git push --force origin main
