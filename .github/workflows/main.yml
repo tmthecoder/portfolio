@@ -26,8 +26,8 @@ jobs:
         git init
         git config user.name  "CI"
         git config user.email "flutter-ci@github.com"
-        git remote add secure-origin https://${{ secrets.ACCESS_TOKEN }}@github.com/tmthecoder/portfolio.git
-        git checkout -b web-source
+        git remote add secure-origin https://${{ secrets.ACCESS_TOKEN }}@github.com/tmthecoder/portfolio-web-source.git
+        git checkout -b main
         git add .
-        git commit -m "Updated built website from code in master"
-        git push --force secure-origin web-source
+        git commit -m "Updated built website from code in @tmthecoder/portfolio"
+        git push --force secure-origin main
