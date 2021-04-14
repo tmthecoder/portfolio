@@ -21,7 +21,7 @@ jobs:
         git config user.name  "CI"
         git config user.email "cloudflare-worker-ci@github.com"
         git remote add secure-origin https://${{ secrets.ACCESS_TOKEN }}@github.com/tmthecoder/portfolio-workers-source.git
-        git checkout -b main
+        git branch -M main
         git add .
         git commit -m "Updated workers source from code in @tmthecoder/portfolio"
         git push --force secure-origin main
