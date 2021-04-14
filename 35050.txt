@@ -1,0 +1,1 @@
+Disable building of dav1d tools and tests in snap
