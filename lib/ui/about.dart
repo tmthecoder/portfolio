@@ -215,18 +215,20 @@ class AboutState extends State<About> with WidgetsBindingObserver {
       schoolLevel = "High School";
     }
 
+    print(now.month);
     switch (now.year) {
+      case 2021:
+        gradeLevel = "Junior";
+        break;
       case 2022:
         gradeLevel = now.month > 6 ? "Freshman" : "Senior";
         break;
       case 2023:
         gradeLevel = now.month > 6 ? "Freshman" : "Sophomore";
         break;
-      case 2019:
       case 2024:
         gradeLevel = now.month > 6 ? "Sophomore" : "Junior";
         break;
-      case 2020:
       case 2025:
         gradeLevel = now.month > 6 ? "Junior" : "Senior";
         break;
