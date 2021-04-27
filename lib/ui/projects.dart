@@ -118,7 +118,7 @@ class ProjectsState extends State<Projects> with WidgetsBindingObserver {
         image: AssetImage("assets/projects/crossclip/website_logo_${ThemeController.of(context).isDark ? "dark" : "light"}.png"),
         title: "CrossClip",
         description: "A secure, versatile, and seamless cross-platform clipboard manager and file transfer agent",
-        projectStatus: ProjectStatus.DEVELOPMENT,
+        projectStatus: ProjectStatus.ALPHA,
         linkName: "crossclip",
       ),
 
