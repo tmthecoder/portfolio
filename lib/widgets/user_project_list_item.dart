@@ -4,7 +4,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:portfolio/util/project_status.dart';
-import 'package:portfolio/util/theme_controller.dart';
 import 'package:portfolio/widgets/project_column.dart';
 
 class UserProjectListItem extends StatelessWidget {

@@ -1,11 +1,7 @@
+import 'package:controller_widgets/controller_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio/util/custom_route_observer.dart';
 import 'package:portfolio/util/fluro_controller.dart';
 import 'package:portfolio/ui/about.dart';
-import 'package:portfolio/util/route_controller.dart';
-import 'package:portfolio/widgets/route_controller_widget.dart';
-import 'package:portfolio/util/theme_controller.dart';
-import 'package:portfolio/widgets/theme_controller_widget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {

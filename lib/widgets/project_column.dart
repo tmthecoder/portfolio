@@ -4,7 +4,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:portfolio/util/project_status.dart';
-import 'package:portfolio/util/theme_controller.dart';
 
 class ProjectColumn extends StatelessWidget {
   final ImageProvider? image;

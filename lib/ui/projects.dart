@@ -1,3 +1,5 @@
+import 'package:controller_widgets/routing/route_controller.dart';
+import 'package:controller_widgets/theming/theme_controller.dart';
 /// Made by Tejas Mehta
 /// Made on Tuesday, August 25, 2020
 /// File Name: projects.dart
@@ -6,8 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:portfolio/util/common_methods.dart';
 import 'package:portfolio/util/project_status.dart';
-import 'package:portfolio/util/route_controller.dart';
-import 'package:portfolio/util/theme_controller.dart';
 import 'package:portfolio/widgets/developer_project_list_item.dart';
 import 'package:portfolio/widgets/icon_link.dart';
 import 'package:portfolio/widgets/image_link.dart';

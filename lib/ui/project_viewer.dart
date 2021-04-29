@@ -1,9 +1,9 @@
+import 'package:controller_widgets/routing/route_controller.dart';
 /// Made by Tejas Mehta
 /// Made on Friday, November 13, 2020
 /// File Name: project_viewer.dart
 
 import 'package:flutter/material.dart';
-import 'package:portfolio/util/route_controller.dart';
 
 class ProjectViewer extends StatefulWidget {
   static final String route = "project/:key";

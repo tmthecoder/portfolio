@@ -1,3 +1,5 @@
+import 'package:controller_widgets/routing/route_controller.dart';
+import 'package:controller_widgets/theming/theme_controller.dart';
 import 'package:flutter/cupertino.dart';
 /// Made by Tejas Mehta
 /// Made on Tuesday, August 25, 2020
@@ -7,9 +9,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:portfolio/util/common_methods.dart';
-import 'package:portfolio/util/theme_controller.dart';
 import 'package:portfolio/widgets/bullet_list_text.dart';
-import 'package:portfolio/util/route_controller.dart';
 // ignore: avoid_web_libraries_in_flutter
 import 'dart:html' as html;
 // ignore: avoid_web_libraries_in_flutter
