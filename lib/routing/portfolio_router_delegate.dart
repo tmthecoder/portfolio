@@ -14,7 +14,7 @@ import 'portfolio_route_path.dart';
 class PortfolioRouterDelegate extends RouterDelegate<PortfolioRoutePath>
     with ChangeNotifier, PopNavigatorRouterDelegateMixin<PortfolioRoutePath> {
 
-  Uri _currentPage = Uri.parse("");
+  static Uri _currentPage = Uri.parse("");
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
