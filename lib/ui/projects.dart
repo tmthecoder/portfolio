@@ -186,7 +186,7 @@ class ProjectsState extends State<Projects> with WidgetsBindingObserver {
       //dargon2_fluter's Listing
       DeveloperProjectListItem(
         title: "dargon2_flutter",
-        description: "A Flutter plugin to hash with the Argon2 Algorithm, with the same usage mechanisms as dargon2",
+        description: "A Flutter plugin to hash with the Argon2 Algorithm which inherits its bindings from dargon2_core",
         projectStatus: ProjectStatus.RELEASED,
         linkRow: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -209,6 +209,35 @@ class ProjectsState extends State<Projects> with WidgetsBindingObserver {
           ],
         ),
         linkName: "dargon2_flutter",
+      ),
+
+      //dargon2_core's Listing
+      DeveloperProjectListItem(
+        title: "dargon2_flutter",
+        description: "A low-level library to define the function bindings for"
+            " the Argon2 Password Hashing Algorithm's C Reference Library",
+        projectStatus: ProjectStatus.RELEASED,
+        linkRow: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            ImageLink(
+              link: "https://github.com/tmthecoder/dargon2_core",
+              assetUri: "assets/third_party/github_logo_${ThemeController.of(context).isDark ? "dark" : "light"}.png",
+              edgeInsets: const EdgeInsets.all(10),
+            ),
+            ImageLink(
+              link: "https://pub.dev/packages/dargon2_core",
+              assetUri: "assets/third_party/dart_logo.png",
+              edgeInsets: const EdgeInsets.fromLTRB(10.0, 10.0, 8.0, 10.0),
+            ),
+            IconLink(
+              icon: Icons.code,
+              link: "https://docs.tmthecoder.dev/dargon2_core",
+              padding: const EdgeInsets.all(10),
+            )
+          ],
+        ),
+        linkName: "dargon2_core",
       ),
 
       //Argon2Swift's Listing
