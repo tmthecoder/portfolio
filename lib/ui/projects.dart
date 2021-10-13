@@ -219,7 +219,7 @@ class ProjectsState extends State<Projects> with WidgetsBindingObserver {
 
       //dargon2_core's Listing
       DeveloperProjectListItem(
-        title: "dargon2_flutter",
+        title: "dargon2_core",
         description: "A low-level library to define the function bindings for"
             " the Argon2 Password Hashing Algorithm's C Reference Library",
         projectStatus: ProjectStatus.RELEASED,
