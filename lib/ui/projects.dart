@@ -273,7 +273,33 @@ class ProjectsState extends State<Projects> with WidgetsBindingObserver {
         ),
         linkName: "argon2swift",
       ),
-
+      // xotp's Listing
+      DeveloperProjectListItem(
+        title: "xotp",
+        description: "A Rust Crate that provides pure-rust implementations of the HOTP and TOTP algorithms",
+        projectStatus: ProjectStatus.RELEASED,
+        linkRow: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            ImageLink(
+              link: "https://github.com/tmthecoder/xotp",
+              assetUri: "assets/third_party/github_logo_${ThemeController.of(context).isDark ? "dark" : "light"}.png",
+              edgeInsets: const EdgeInsets.all(10),
+            ),
+            ImageLink(
+              link: "https://crates.io/crates/xotp",
+              assetUri: "assets/third_party/cargo_logo.png",
+              edgeInsets: const EdgeInsets.all(10),
+            ),
+            IconLink(
+              icon: Icons.code,
+              link: "https://docs.tmthecoder.dev/xotp",
+              padding: const EdgeInsets.all(10),
+            )
+          ],
+        ),
+        linkName: "xotp"
+      ),
       //OdometryCore's Listing
       DeveloperProjectListItem(
         title: "Odometry Core",
