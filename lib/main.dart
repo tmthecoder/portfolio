@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:controller_widgets/controller_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/routing/portfolio_route_information_parser.dart';
@@ -9,15 +11,15 @@ void main() {
     future: SharedPreferences.getInstance(),
     builder: (BuildContext context, AsyncSnapshot<SharedPreferences> snapshot) {
       if (!snapshot.hasData) return Container();
-      return ThemeControllerWidget(initiallyIsDark: snapshot.data?.getBool("initialDark") ?? false, child: MyApp(),);
+      return ThemeControllerWidget(
+        initiallyIsDark: window.matchMedia('(prefers-color-scheme: dark)').matches,
+        child: MyApp(),
+      );
     }
   ));
 }
 
 class MyApp extends StatelessWidget {
-  final GlobalKey<NavigatorState> _navigatorKey = GlobalKey<NavigatorState>();
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-
   final ThemeData _lightTheme = ThemeData(
     brightness: Brightness.light,
     appBarTheme: AppBarTheme(color: Colors.transparent, shadowColor: Colors.transparent, iconTheme: IconThemeData(color: Colors.black)),

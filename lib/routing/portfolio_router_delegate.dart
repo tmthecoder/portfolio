@@ -2,6 +2,8 @@
 /// Made on Saturday, May 01, 2021
 /// File Name: portfolio_router_delegate.dart
 
+import 'dart:html';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:controller_widgets/controller_widgets.dart';
@@ -78,18 +80,24 @@ class PortfolioRouterDelegate extends RouterDelegate<PortfolioRoutePath>
   }
 
   AppBar _createAppbar(BuildContext context) {
+    bool needsButtons = MediaQuery.of(context).size.width > 500;
     return AppBar(
       title: Text("Tejas Mehta", style: TextStyle(color: ThemeController.of(context).isDark ? Colors.white : Colors.black),),
       actions: [
-        MediaQuery.of(context).size.width > 500 ? TextButton(
+        if(needsButtons) TextButton(
             onPressed: () => moveAndUpdateRoute(PortfolioRoutePath.about(), false),
             child: _createTextTab("About", context)
-        ) : Container(),
+        ),
         Padding(padding: EdgeInsets.all(10)),
-        MediaQuery.of(context).size.width > 500 ? TextButton(
+        if (needsButtons) TextButton(
             onPressed: () => moveAndUpdateRoute(PortfolioRoutePath.projects(), false),
             child: _createTextTab("Projects", context)
-        ) : Container(),
+        ),
+        Padding(padding: EdgeInsets.all(10)),
+        if (needsButtons) TextButton(
+          onPressed: _moveToBlog,
+          child: _createTextTab("Blog", context),
+        ),
         Padding(padding: EdgeInsets.all(10)),
         IconButton(
             icon: Icon(ThemeController.of(context).isDark ? Icons.wb_sunny : Icons.brightness_3), onPressed: () {
@@ -105,6 +113,7 @@ class PortfolioRouterDelegate extends RouterDelegate<PortfolioRoutePath>
         children: [
           ListTile(title: Text("About"), onTap: () => moveAndUpdateRoute(PortfolioRoutePath.about(), true),),
           ListTile(title: Text("Projects"), onTap: () => moveAndUpdateRoute(PortfolioRoutePath.projects(), true),),
+          ListTile(title: Text("Blog"), onTap: _moveToBlog,)
         ],
       ),
     );
@@ -126,6 +135,10 @@ class PortfolioRouterDelegate extends RouterDelegate<PortfolioRoutePath>
     ],
     onPopPage: (_, __) => false,
   );
+
+  void _moveToBlog() {
+    window.open("https://blog.tmthecoder.dev","_blank");
+  }
 
   void moveAndUpdateRoute(PortfolioRoutePath path, bool drawer) {
     setNewRoutePath(path);
