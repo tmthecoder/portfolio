@@ -34,22 +34,26 @@ class PortfolioRouterDelegate extends RouterDelegate<PortfolioRoutePath>
     return PortfolioRouteControllerWidget(
       initialRoute: _currentPage.path,
       delegate: this,
-      child: Scaffold(
-        key: _scaffoldKey,
-        appBar: _createAppbar(context),
-        drawer: MediaQuery.of(context).size.width <= 500 ? _createDrawer(context) : null,
-        body: Navigator(
-          key: navigatorKey,
-          pages: [
-            _getPathForRoute(_currentPage)
-          ],
-          onPopPage: (route, result) {
-            if (!route.didPop(result)) return false;
-            _currentPage.removeFragment();
-            notifyListeners();
-            return true;
-          },
-        ),
+      child: Overlay(
+        initialEntries: [
+          OverlayEntry(builder: (context) => Scaffold(
+            key: _scaffoldKey,
+            appBar: _createAppbar(context),
+            drawer: MediaQuery.of(context).size.width <= 500 ? _createDrawer(context) : null,
+            body: Navigator(
+              key: navigatorKey,
+              pages: [
+                _getPathForRoute(_currentPage)
+              ],
+              onPopPage: (route, result) {
+                if (!route.didPop(result)) return false;
+                _currentPage.removeFragment();
+                notifyListeners();
+                return true;
+              },
+            ),
+          ))
+        ],
       ),
     );
   }
