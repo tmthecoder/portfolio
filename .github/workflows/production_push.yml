@@ -26,6 +26,8 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Create & Push to Production
         run: |
+          git config user.name  "CI"
+          git config user.email "portfolio-ci@github.com"
           git checkout -b production
           git add .
           git commit -m "Upgraded to production @tmthecoder/portfolio's preview branch"
