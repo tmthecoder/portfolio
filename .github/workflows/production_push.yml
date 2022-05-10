@@ -30,4 +30,4 @@ jobs:
           git checkout -b production
           git add .
           git commit -m "Upgraded to production @tmthecoder/portfolio's preview branch"
-          git push --force origin production
+          git push --force -u origin production
