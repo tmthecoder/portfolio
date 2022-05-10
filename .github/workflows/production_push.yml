@@ -29,5 +29,4 @@ jobs:
           git config user.email "portfolio-ci@github.com"
           git checkout -b production
           git add .
-          git commit -m "Upgraded to production @tmthecoder/portfolio's preview branch"
           git push --force -u origin production
