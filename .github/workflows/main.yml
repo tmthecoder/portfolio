@@ -29,4 +29,4 @@ jobs:
         git checkout -b preview
         git add .
         git commit -m "Updated built website from code in @tmthecoder/portfolio"
-        git push --force secure-origin main
+        git push --force secure-origin preview
