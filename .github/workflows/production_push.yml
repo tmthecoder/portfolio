@@ -21,7 +21,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Checkout Preview Branch
-        run: git checkout preview
+        run: git branch preview
 
       # Runs a set of commands using the runners shell
       - name: Create & Push to Production
