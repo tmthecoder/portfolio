@@ -29,7 +29,7 @@ class PortfolioRouteControllerWidgetState extends State<PortfolioRouteController
   /// A method to update the current route for the website and updates the called route
   void updateRoute(PortfolioRoutePath path) {
     widget.delegate.setNewRoutePath(path);
-    WidgetsBinding.instance?.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       setState(() {
         _route = path.path;
       });

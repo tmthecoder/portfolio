@@ -8,7 +8,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:portfolio/util/common_methods.dart';
 import 'package:portfolio/widgets/bullet_list_text.dart';
 // ignore: avoid_web_libraries_in_flutter
 import 'dart:html' as html;
@@ -34,10 +33,10 @@ class AboutState extends State<About> with WidgetsBindingObserver {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance?.addPostFrameCallback((_){
+    WidgetsBinding.instance.addPostFrameCallback((_){
       RouteController.of(context)?.updateRoute("about");
     });
-    WidgetsBinding.instance?.addObserver(this);
+    WidgetsBinding.instance.addObserver(this);
 
   }
 
@@ -46,7 +45,7 @@ class AboutState extends State<About> with WidgetsBindingObserver {
   ///Currently only removes the observer set in initState for the light/dark theme changes
   @override
   void dispose() {
-    WidgetsBinding.instance?.removeObserver(this);
+    WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
 
@@ -54,7 +53,7 @@ class AboutState extends State<About> with WidgetsBindingObserver {
   ///Only changes the listener's state to the theme allowing to change the theme while user is on the screen
   @override
   void didChangePlatformBrightness() {
-    WidgetsBinding.instance?.window.platformBrightness;
+    WidgetsBinding.instance.window.platformBrightness;
   }
 
   @override
@@ -84,23 +83,28 @@ class AboutState extends State<About> with WidgetsBindingObserver {
               Text("About", style: Theme.of(context).textTheme.headline4,),
               Padding(padding: const EdgeInsets.all(5)),
               Text("Hello! I'm a Software Developer${makeStatement()} who loves experimenting with various new languages, technologies, and tools. "
-                  "I'm currently a high school student in New Jersey looking to expand my horizon of Computer Science knowledge. Aside from development, "
-                  "I love hiking outdoors, playing video games and watching new TV shows and movies! If you didn't know, I'm also a huge Star Wars fan!"),
+                  "I'm currently a student at Georgia Tech looking to expand my horizon of Computer Science knowledge. Aside from development, "
+                  "I love hiking outdoors, experimenting with coffee-making and watching new TV shows and movies! If you didn't know, I'm also a huge Star Wars fan!"),
               Padding(padding: const EdgeInsets.all(10)),
               Text("Experience", style: Theme.of(context).textTheme.headline4,),
               Padding(padding: const EdgeInsets.all(5)),
+              Text("Rust:"),
+              BulletListText("About 2 years, started writing code with Rust in 2020"),
+              BulletListText("Created an open source package for HOTP & TOTP generation and validation"),
+              BulletListText("Re-wrote cClip's Direct Transfer implementation in Rust, improving performance nearly 10x and dropping errors 20% (threading + safety)"),
+              Padding(padding: const EdgeInsets.all(5)),
               Text("Flutter & Dart:"),
-              BulletListText("Over 2 years, started writing code with Flutter & Dart in 2018 during Flutter's beta phase"),
+              BulletListText("Over 3 years, started writing code with Flutter & Dart in 2018 during Flutter's beta phase"),
               BulletListText("Freelance Development utilizing Flutter to build applications for various clients"),
-              BulletListText("Experienced in complex skills such as isolate computation for encryption & efficient state management "),
+              BulletListText("Experienced in complex skills such as isolate computation for encryption & efficient state management"),
               Padding(padding: const EdgeInsets.all(5)),
               Text("Java/Kotlin & Android:"),
-              BulletListText("Over 4 years, where I started writing code in Java consistently in 7th grade"),
+              BulletListText("Over 5 years, where I started writing code in Java consistently in 7th grade"),
               BulletListText("Primarily Java and Android"),
               BulletListText("Worked with various Android apps written with Java, but have no trouble interpreting and utilizing Kotlin"),
               Padding(padding: const EdgeInsets.all(5)),
               Text("Swift/Objective-C & iOS/macOS:"),
-              BulletListText("Over 2 years, where I started taking a look at Objective-C code in various Open Source macOS apps"),
+              BulletListText("Over 3 years, where I started taking a look at Objective-C code in various Open Source macOS apps"),
               BulletListText("Primarily in swift for macOS development through AppKit"),
               BulletListText("Wrote iOS specific features in Swift within Flutter apps"),
               Padding(padding: const EdgeInsets.all(5)),
@@ -149,7 +153,6 @@ class AboutState extends State<About> with WidgetsBindingObserver {
   /// the other to download.
   Widget createResumeViewOpen() {
     String userPlatform = getUserAgent().toLowerCase();
-    print(userPlatform);
     bool showSingleButton = false;
     if (userPlatform.contains("ipod") || userPlatform.contains("ipad") || userPlatform.contains("iphone") || userPlatform.contains("android")) {
       showSingleButton = true;
@@ -186,11 +189,6 @@ class AboutState extends State<About> with WidgetsBindingObserver {
     );
   }
 
-  /// Test method to use stripe (will be used in the future sometime...
-  void callJS() {
-    js.context.callMethod('createAndRedirect', ["price_1HLJr5Ge8QXeWO1XzL92REy5"]);
-  }
-
   String getUserAgent() {
     return "${js.context.callMethod('getUserAgent')}";
   }
@@ -207,9 +205,9 @@ class AboutState extends State<About> with WidgetsBindingObserver {
     String schoolLevel = "";
     String gradeLevel = "";
     DateTime now = DateTime.now();
-    if (now.year > 2026 && now.month > 6) {
+    if (now.year >= 2026 && now.month > 5) {
       return "";
-    } else if (now.year > 2022 && now.month > 6) {
+    } else if (now.year >= 2022 && now.month > 5) {
       schoolLevel = "College";
     } else {
       schoolLevel = "High School";

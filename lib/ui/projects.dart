@@ -29,17 +29,17 @@ class ProjectsState extends State<Projects> with WidgetsBindingObserver {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance?.addPostFrameCallback((_){
+    WidgetsBinding.instance.addPostFrameCallback((_){
       RouteController.of(context)?.updateRoute("projects");
     });
-    WidgetsBinding.instance?.addObserver(this);
+    WidgetsBinding.instance.addObserver(this);
   }
 
   ///Dispose method
   ///Currently only removes the observer set in initState for the light/dark theme changes
   @override
   void dispose() {
-    WidgetsBinding.instance?.removeObserver(this);
+    WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
 
@@ -47,7 +47,7 @@ class ProjectsState extends State<Projects> with WidgetsBindingObserver {
   ///Only changes the listener's state to the theme allowing to change the theme while user is on the screen
   @override
   void didChangePlatformBrightness() {
-    WidgetsBinding.instance?.window.platformBrightness;
+    WidgetsBinding.instance.window.platformBrightness;
   }
 
   @override
