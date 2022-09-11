@@ -140,7 +140,7 @@ class AboutState extends State<About> with WidgetsBindingObserver {
         ),
         Padding(padding: const EdgeInsets.all(20),),
         ImageLink(
-          link: "https://www.linkedin.com/in/tejas-mehta-88109818b",
+          link: "https://www.linkedin.com/in/tmthecoder",
           assetUri: "assets/third_party/linkedin_logo.png",
           edgeInsets: const EdgeInsets.fromLTRB(10.0, 10.0, 8.0, 10.0),
         ),
