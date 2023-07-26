@@ -2,6 +2,8 @@
 /// Made on Tuesday, August 25, 2020
 /// File Name: projects.dart
 
+import 'dart:math';
+
 import 'package:controller_widgets/routing/route_controller.dart';
 import 'package:controller_widgets/theming/theme_controller.dart';
 import 'package:flutter/material.dart';
@@ -87,9 +89,10 @@ class ProjectsState extends State<Projects> with WidgetsBindingObserver {
               ),
               MasonryGridView.count(
                 shrinkWrap: true,
+                padding: EdgeInsets.only(left: paddingSize/3, right: paddingSize/3),
                 physics: ClampingScrollPhysics(),
                 key: UniqueKey(),
-                crossAxisCount: axisCount,
+                crossAxisCount: min(axisCount, userItems.length),
                 itemCount: userItems.length,
                 crossAxisSpacing: 10,
                 mainAxisSpacing: 10,
@@ -152,25 +155,6 @@ class ProjectsState extends State<Projects> with WidgetsBindingObserver {
             "An intuitive, real-time, cloud-based Scouting and Scoring application built for ease and synchronization",
         projectStatus: ProjectStatus.RELEASED,
       ),
-
-      //blinkOS's listing
-      UserProjectListItem(
-        image: AssetImage(
-            "assets/projects/blinkos/website_logo_${ThemeController.of(context).isDark ? "dark" : "light"}.png"),
-        title: "blinkOS - A hackSugar Project",
-        description:
-            "An Android-based operating system build to ensure the user's privacy, security, and anonymity.",
-        projectStatus: ProjectStatus.ALPHA,
-      ),
-
-      //Weasel's listing
-      UserProjectListItem(
-        image: AssetImage("assets/projects/weasel/website_logo.png"),
-        title: "Weasel - A hackSugar Project",
-        description:
-            "An encrypted messaging client built to secure and improve upon the already widespread SMS protocol.",
-        projectStatus: ProjectStatus.DEVELOPMENT,
-      ),
     ];
   }
 
@@ -182,7 +166,7 @@ class ProjectsState extends State<Projects> with WidgetsBindingObserver {
       DeveloperProjectListItem(
         title: "dargon2",
         description:
-            "A simple, versatile, and full-featured library for hashing in dart with the Argon2 Password Hash Algorithm",
+            "A simple, versatile, and full-featured library for hashing in dart with the Argon2 Password Hash Algorithm. Contains packages for Dart Native & Flutter support",
         projectStatus: ProjectStatus.RELEASED,
         linkRow: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -206,66 +190,6 @@ class ProjectsState extends State<Projects> with WidgetsBindingObserver {
           ],
         ),
         linkName: "dargon2",
-      ),
-
-      //dargon2_fluter's Listing
-      DeveloperProjectListItem(
-        title: "dargon2_flutter",
-        description:
-            "A Flutter plugin to hash with the Argon2 Algorithm which inherits its bindings from dargon2_core",
-        projectStatus: ProjectStatus.RELEASED,
-        linkRow: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            ImageLink(
-              link: "https://github.com/tmthecoder/dargon2_flutter",
-              assetUri:
-                  "assets/third_party/github_logo_${ThemeController.of(context).isDark ? "dark" : "light"}.png",
-              edgeInsets: const EdgeInsets.all(10),
-            ),
-            ImageLink(
-              link: "https://pub.dev/packages/dargon2_flutter",
-              assetUri: "assets/third_party/dart_logo.png",
-              edgeInsets: const EdgeInsets.fromLTRB(10.0, 10.0, 8.0, 10.0),
-            ),
-            IconLink(
-              icon: Icons.code,
-              link: "https://docs.tmthecoder.dev/dargon2_flutter",
-              padding: const EdgeInsets.all(10),
-            )
-          ],
-        ),
-        linkName: "dargon2_flutter",
-      ),
-
-      //dargon2_core's Listing
-      DeveloperProjectListItem(
-        title: "dargon2_core",
-        description: "A low-level library to define the function bindings for"
-            " the Argon2 Password Hashing Algorithm's C Reference Library",
-        projectStatus: ProjectStatus.RELEASED,
-        linkRow: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            ImageLink(
-              link: "https://github.com/tmthecoder/dargon2_core",
-              assetUri:
-                  "assets/third_party/github_logo_${ThemeController.of(context).isDark ? "dark" : "light"}.png",
-              edgeInsets: const EdgeInsets.all(10),
-            ),
-            ImageLink(
-              link: "https://pub.dev/packages/dargon2_core",
-              assetUri: "assets/third_party/dart_logo.png",
-              edgeInsets: const EdgeInsets.fromLTRB(10.0, 10.0, 8.0, 10.0),
-            ),
-            IconLink(
-              icon: Icons.code,
-              link: "https://docs.tmthecoder.dev/dargon2_core",
-              padding: const EdgeInsets.all(10),
-            )
-          ],
-        ),
-        linkName: "dargon2_core",
       ),
 
       //Argon2Swift's Listing
@@ -325,30 +249,6 @@ class ProjectsState extends State<Projects> with WidgetsBindingObserver {
             ],
           ),
           linkName: "xotp"),
-      //OdometryCore's Listing
-      DeveloperProjectListItem(
-        title: "Odometry Core",
-        description:
-            "A java library that houses and abstracts the core algorithm for three-encoder robot motion tracking",
-        projectStatus: ProjectStatus.RELEASED,
-        linkRow: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            ImageLink(
-              link: "https://github.com/tmthecoder/OdometryCore",
-              assetUri:
-                  "assets/third_party/github_logo_${ThemeController.of(context).isDark ? "dark" : "light"}.png",
-              edgeInsets: const EdgeInsets.all(10),
-            ),
-            IconLink(
-              icon: Icons.code,
-              link: "https://docs.tmthecoder.dev/OdometryCore",
-              padding: const EdgeInsets.all(10),
-            )
-          ],
-        ),
-        linkName: "odometrycore",
-      ),
     ];
   }
 }

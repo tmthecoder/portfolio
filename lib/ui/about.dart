@@ -89,18 +89,18 @@ class AboutState extends State<About> with WidgetsBindingObserver {
               ),
               Padding(padding: const EdgeInsets.all(5)),
               Text(
-                  "Hello! I'm a Software Developer${makeStatement()} who loves experimenting with various new languages, technologies, and tools. "
+                  "Hello! I'm a Software Developer who loves experimenting with various new languages, technologies, and tools. "
                   "I'm currently a student at Georgia Tech looking to expand my horizon of Computer Science knowledge. Aside from development, "
                   "I love hiking outdoors, experimenting with coffee-making and watching new TV shows and movies! If you didn't know, I'm also a huge Star Wars fan!"),
               Padding(padding: const EdgeInsets.all(10)),
               Text(
-                "Experience",
+                "Experience Overview",
                 style: Theme.of(context).textTheme.headline4,
               ),
               Padding(padding: const EdgeInsets.all(5)),
               Text("Rust:"),
               BulletListText(
-                  "About 2 years, started writing code with Rust in 2020"),
+                  "About 3 years, started writing code with Rust in 2020"),
               BulletListText(
                   "Created an open source package for HOTP & TOTP generation and validation"),
               BulletListText(
@@ -108,7 +108,7 @@ class AboutState extends State<About> with WidgetsBindingObserver {
               Padding(padding: const EdgeInsets.all(5)),
               Text("Flutter & Dart:"),
               BulletListText(
-                  "Over 3 years, started writing code with Flutter & Dart in 2018 during Flutter's beta phase"),
+                  "Over 5 years, started writing code with Flutter & Dart in 2018 during Flutter's beta phase"),
               BulletListText(
                   "Freelance Development utilizing Flutter to build applications for various clients"),
               BulletListText(
@@ -116,14 +116,14 @@ class AboutState extends State<About> with WidgetsBindingObserver {
               Padding(padding: const EdgeInsets.all(5)),
               Text("Java/Kotlin & Android:"),
               BulletListText(
-                  "Over 5 years, where I started writing code in Java consistently in 7th grade"),
+                  "Over 6 years, where I started writing code in Java consistently in 7th grade"),
               BulletListText("Primarily Java and Android"),
               BulletListText(
                   "Worked with various Android apps written with Java, but have no trouble interpreting and utilizing Kotlin"),
               Padding(padding: const EdgeInsets.all(5)),
               Text("Swift/Objective-C & iOS/macOS:"),
               BulletListText(
-                  "Over 3 years, where I started taking a look at Objective-C code in various Open Source macOS apps"),
+                  "Over 4 years, where I started taking a look at Objective-C code in various Open Source macOS apps"),
               BulletListText(
                   "Primarily in swift for macOS development through AppKit"),
               BulletListText(
@@ -221,44 +221,6 @@ class AboutState extends State<About> with WidgetsBindingObserver {
     DateTime now = DateTime.now();
     DateTime birthday = DateTime(2003, 12, 19);
     return (now.difference(birthday).inDays / 365).floor();
-  }
-
-  /// Method to get my level of education because I'd forget to update it
-  String makeStatement() {
-    String schoolLevel = "";
-    String gradeLevel = "";
-    DateTime now = DateTime.now();
-    if (now.year >= 2026 && now.month > 5) {
-      return "";
-    } else if ((now.year >= 2022 && now.month > 5) || now.year > 2022) {
-      schoolLevel = "College";
-    } else {
-      schoolLevel = "High School";
-    }
-
-    print(now.month);
-    switch (now.year) {
-      case 2021:
-        gradeLevel = "Junior";
-        break;
-      case 2022:
-        gradeLevel = now.month > 6 ? "Freshman" : "Senior";
-        break;
-      case 2023:
-        gradeLevel = now.month > 6 ? "Freshman" : "Sophomore";
-        break;
-      case 2024:
-        gradeLevel = now.month > 6 ? "Sophomore" : "Junior";
-        break;
-      case 2025:
-        gradeLevel = now.month > 6 ? "Junior" : "Senior";
-        break;
-      case 2026:
-        gradeLevel = now.month > 6 ? "Senior" : "";
-        break;
-    }
-
-    return " in my $gradeLevel year of $schoolLevel";
   }
 
   /// A method to glob the resume PDF and open it up in browser
