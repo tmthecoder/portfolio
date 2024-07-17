@@ -85,7 +85,7 @@ class AboutState extends State<About> with WidgetsBindingObserver {
               Padding(padding: const EdgeInsets.all(5)),
               Text(
                 "About",
-                style: Theme.of(context).textTheme.headline4,
+                style: Theme.of(context).textTheme.headlineMedium,
               ),
               Padding(padding: const EdgeInsets.all(5)),
               Text(
@@ -95,7 +95,7 @@ class AboutState extends State<About> with WidgetsBindingObserver {
               Padding(padding: const EdgeInsets.all(10)),
               Text(
                 "Experience Overview",
-                style: Theme.of(context).textTheme.headline4,
+                style: Theme.of(context).textTheme.headlineMedium,
               ),
               Padding(padding: const EdgeInsets.all(5)),
               Text("C & C++:"),
@@ -182,27 +182,27 @@ class AboutState extends State<About> with WidgetsBindingObserver {
     return RichText(
       text: TextSpan(children: [
         TextSpan(
-            text: "Resume (", style: Theme.of(context).textTheme.bodyText2),
+            text: "Resume (", style: Theme.of(context).textTheme.bodySmall),
         TextSpan(
           text: "View",
           style: Theme.of(context)
               .textTheme
-              .bodyText2
+              .bodySmall
               ?.merge(TextStyle(color: Colors.blue)),
           recognizer: TapGestureRecognizer()..onTap = viewResume,
         ),
         if (!showSingleButton)
-          TextSpan(text: " / ", style: Theme.of(context).textTheme.bodyText2),
+          TextSpan(text: " / ", style: Theme.of(context).textTheme.bodySmall),
         if (!showSingleButton)
           TextSpan(
             text: "Download",
             style: Theme.of(context)
                 .textTheme
-                .bodyText2
+                .bodySmall
                 ?.merge(TextStyle(color: Colors.blue)),
             recognizer: TapGestureRecognizer()..onTap = downloadResume,
           ),
-        TextSpan(text: ")", style: Theme.of(context).textTheme.bodyText2),
+        TextSpan(text: ")", style: Theme.of(context).textTheme.bodySmall),
       ]),
     );
   }

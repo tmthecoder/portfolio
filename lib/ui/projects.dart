@@ -82,14 +82,15 @@ class ProjectsState extends State<Projects> with WidgetsBindingObserver {
             children: [
               Text(
                 "Users",
-                style: Theme.of(context).textTheme.headline4,
+                style: Theme.of(context).textTheme.headlineMedium,
               ),
               Padding(
                 padding: EdgeInsets.all(10),
               ),
               MasonryGridView.count(
                 shrinkWrap: true,
-                padding: EdgeInsets.only(left: paddingSize/3, right: paddingSize/3),
+                padding: EdgeInsets.only(
+                    left: paddingSize / 3, right: paddingSize / 3),
                 physics: ClampingScrollPhysics(),
                 key: UniqueKey(),
                 crossAxisCount: min(axisCount, userItems.length),
@@ -103,7 +104,7 @@ class ProjectsState extends State<Projects> with WidgetsBindingObserver {
               ),
               Text(
                 "Developers",
-                style: Theme.of(context).textTheme.headline4,
+                style: Theme.of(context).textTheme.headlineMedium,
               ),
               Padding(
                 padding: EdgeInsets.all(10),
