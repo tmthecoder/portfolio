@@ -98,13 +98,23 @@ class AboutState extends State<About> with WidgetsBindingObserver {
                 style: Theme.of(context).textTheme.headline4,
               ),
               Padding(padding: const EdgeInsets.all(5)),
+              Text("C & C++:"),
+              BulletListText(
+                  "Currently working at Akuna Capital on the Market Data team writing highly performant C++ code to work with rapid data ingest while minimizing latency"),
+              BulletListText(
+                  "Worked with C & C++ in personal projects such as cClip (to bridge between Rust and Dart safely with support for complex data types)"),
+              BulletListText(
+                  "Contributed to Cloudflare's open-source 'workerd' runtime during my internship, as well as wrote code for the internal multi-tenant runtime."),
+              Padding(padding: const EdgeInsets.all(5)),
               Text("Rust:"),
               BulletListText(
-                  "About 3 years, started writing code with Rust in 2020"),
+                  "About 4 years, started writing code with Rust in 2020"),
               BulletListText(
                   "Created an open source package for HOTP & TOTP generation and validation"),
               BulletListText(
                   "Re-wrote cClip's Direct Transfer implementation in Rust, improving performance nearly 10x and dropping errors 20% (threading + safety)"),
+              BulletListText(
+                  "Currenly working on smb_reader, a library to parse and work with SMB messages directly from a byte stream efficiently, concurrently, and safely"),
               Padding(padding: const EdgeInsets.all(5)),
               Text("Flutter & Dart:"),
               BulletListText(
@@ -113,21 +123,6 @@ class AboutState extends State<About> with WidgetsBindingObserver {
                   "Freelance Development utilizing Flutter to build applications for various clients"),
               BulletListText(
                   "Experienced in complex skills such as isolate computation for encryption & efficient state management"),
-              Padding(padding: const EdgeInsets.all(5)),
-              Text("Java/Kotlin & Android:"),
-              BulletListText(
-                  "Over 6 years, where I started writing code in Java consistently in 7th grade"),
-              BulletListText("Primarily Java and Android"),
-              BulletListText(
-                  "Worked with various Android apps written with Java, but have no trouble interpreting and utilizing Kotlin"),
-              Padding(padding: const EdgeInsets.all(5)),
-              Text("Swift/Objective-C & iOS/macOS:"),
-              BulletListText(
-                  "Over 4 years, where I started taking a look at Objective-C code in various Open Source macOS apps"),
-              BulletListText(
-                  "Primarily in swift for macOS development through AppKit"),
-              BulletListText(
-                  "Wrote iOS specific features in Swift within Flutter apps"),
               Padding(padding: const EdgeInsets.all(5)),
               createResumeViewOpen(),
             ],
